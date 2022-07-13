@@ -1,0 +1,3307 @@
+<!--
+
+=========================================================
+* Argon Dashboard - v1.1.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/argon-dashboard
+* Copyright 2019 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Static assets - Used to load the Favicon -->
+
+
+<head>
+  <meta charset="utf-8">
+  <title>
+    One Nine AI
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+  <meta name="author" content="Creative Tim">
+  <title>Argon Dashboard PRO - Premium Bootstrap 4 Admin Template</title>
+  <!-- Favicon -->
+  <link rel="icon" href="/static/assets/img/brand/favicon.png" type="image/png">
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+  <!-- Icons -->
+  <link rel="stylesheet" href="/static/assets/vendor/nucleo/css/nucleo.css" type="text/css">
+  <link rel="stylesheet" href="/static/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+  <!-- Page plugins -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <link rel="stylesheet" href="/static/assets/vendor/sweetalert2/dist/sweetalert2.min.css">
+  <!-- Argon CSS -->
+  <link rel="stylesheet" href="/static/assets/css/argon.css" type="text/css">
+
+
+    <!-- Specific CSS goes HERE -->
+  <style>
+  .spinner {
+    position: fixed;
+    top: calc(50% - 1rem);
+    left: calc(50% - 1rem);
+    width: 2rem;
+    height: 2rem;
+    border: 0.25rem solid #fff;
+    border-bottom: 0.25rem solid rgba(0,0,0,0);
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: spin 0.5s linear infinite;
+    /* z-index: 9999; */
+  }
+
+  .spinner--hidden {
+    display: none;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  </style>
+  <style>
+     .table{
+  border: none;
+  border-spacing: 0;
+  border-collapse: collapse;
+  /* text-align: left; */
+}
+  /* #loading{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background:#fff url("../../static/assets/img/theme/loader-dashboard.gif") no-repeat center;
+    z-index:99999;
+  } */
+
+
+  </style>
+    
+</head>
+
+
+<body class="">
+  <!--  -->
+  {% include "includes/sidenav.html" %}
+
+  <div class="main-content">
+    
+    <nav class="navbar navbar-top navbar-expand navbar-dark bg-gradient-primary border-bottom" id="navbar1">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Search form -->
+            <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+                <div class="form-group mb-0">
+                    <div class="input-group input-group-alternative input-group-merge">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                        </div>
+                        <input class="form-control" placeholder="Search" type="text" />
+                    </div>
+                </div>
+                <button
+                    type="button"
+                    class="close"
+                    data-action="search-close"
+                    data-target="#navbar-search-main"
+                    aria-label="Close"
+                >
+                    <span aria-hidden="true">×</span>
+                </button>
+            </form>
+            <!-- Navbar links -->
+            <ul class="navbar-nav align-items-center ml-md-auto">
+                <li class="nav-item d-xl-none">
+                    <!-- Sidenav toggler -->
+                    <div
+                        class="pr-3 sidenav-toggler sidenav-toggler-dark"
+                        data-action="sidenav-pin"
+                        data-target="#sidenav-main"
+                    >
+                        <div class="sidenav-toggler-inner">
+                            <i class="sidenav-toggler-line"></i>
+                            <i class="sidenav-toggler-line"></i>
+                            <i class="sidenav-toggler-line"></i>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item d-sm-none">
+                    <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
+                        <i class="ni ni-zoom-split-in"></i>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a
+                        class="nav-link"
+                        href="#"
+                        role="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                    >
+                        <i class="ni ni-bell-55"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right py-0 overflow-hidden">
+                        <!-- Dropdown header -->
+                        <div class="px-3 py-3">
+                            <h6 class="text-sm text-muted m-0">
+                                You have <strong class="text-primary">3</strong> notifications.
+                            </h6>
+                        </div>
+                        <!-- List group -->
+                        <div class="list-group list-group-flush">
+                            <a href="/" class="list-group-item list-group-item-action">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <!-- Avatar -->
+                                        <span class="shortcut-media avatar rounded-circle bg-gradient-green">
+                                            <i class="ni ni-books"></i>
+                                        </span>
+                                    </div>
+                                    <div class="col ml--2">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h4 class="mb-0 text-sm">Welcome to OneNine Cloud</h4>
+                                            </div>
+                                            <div class="text-right text-muted">
+                                                <small>Get Started</small>
+                                            </div>
+                                        </div>
+                                        <p class="text-sm mb-0">Let's get started on your AI Journey</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="/select_new" class="list-group-item list-group-item-action">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <!-- Avatar -->
+                                        <span class="shortcut-media avatar rounded-circle bg-gradient-green">
+                                            <i class="ni ni-books"></i>
+                                        </span>
+                                    </div>
+                                    <div class="col ml--2">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h4 class="mb-0 text-sm">Discover Being Data Driven</h4>
+                                            </div>
+                                            <div class="text-right text-muted">
+                                                <small>Try Now</small>
+                                            </div>
+                                        </div>
+                                        <p class="text-sm mb-0">
+                                            Allows non experts to go from data to insights in minutes
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a
+                                href="https://onenine.atlassian.net/servicedesk/customer/portals"
+                                class="list-group-item list-group-item-action"
+                            >
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <!-- Avatar -->
+                                        <span class="shortcut-media avatar rounded-circle bg-gradient-green">
+                                            <i class="ni ni-books"></i>
+                                        </span>
+                                    </div>
+                                    <div class="col ml--2">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h4 class="mb-0 text-sm">Provide Feedback</h4>
+                                            </div>
+                                            <div class="text-right text-muted">
+                                                <small>Provide Now</small>
+                                            </div>
+                                        </div>
+                                        <p class="text-sm mb-0">
+                                            It allows us to improve our features and provide you better support
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- View all -->
+                        <!-- <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a> -->
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a
+                        class="nav-link"
+                        href="#"
+                        role="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                    >
+                        <i class="ni ni-ungroup"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default dropdown-menu-right">
+                        <div class="row shortcuts px-4">
+                            <a href="/calendar_show" class="col-4 shortcut-item">
+                                <span class="shortcut-media avatar rounded-circle bg-gradient-red">
+                                    <i class="ni ni-calendar-grid-58"></i>
+                                </span>
+                                <small>Calendar</small>
+                            </a>
+                            <a href="mailto:support@onenine.ai" class="col-4 shortcut-item">
+                                <span class="shortcut-media avatar rounded-circle bg-gradient-orange">
+                                    <i class="ni ni-email-83"></i>
+                                </span>
+                                <small>Email Us</small>
+                            </a>
+                            <a href="/learn_ai" class="col-4 shortcut-item">
+                                <span class="shortcut-media avatar rounded-circle bg-gradient-info">
+                                    <i class="ni ni-credit-card"></i>
+                                </span>
+                                <small>Learn AI</small>
+                            </a>
+                            <a href="/explore_data_wizard_list" class="col-4 shortcut-item">
+                                <span class="shortcut-media avatar rounded-circle bg-gradient-green">
+                                    <i class="ni ni-books"></i>
+                                </span>
+                                <small>Explore</small>
+                            </a>
+                            <a href="/dataVisualization/" class="col-4 shortcut-item">
+                                <span class="shortcut-media avatar rounded-circle bg-gradient-purple">
+                                    <i class="ni ni-pin-3"></i>
+                                </span>
+                                <small>Visualize</small>
+                            </a>
+                            <a href="/settings" class="col-4 shortcut-item">
+                                <span class="shortcut-media avatar rounded-circle bg-gradient-yellow">
+                                    <i class="ni ni-basket"></i>
+                                </span>
+                                <small>Automate</small>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav align-items-center ml-auto ml-md-0">
+                <li class="nav-item dropdown">
+                    <a
+                        class="nav-link pr-0"
+                        href="#"
+                        role="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                    >
+                        <div class="media align-items-center">
+                            <span class="avatar avatar-sm rounded-circle">
+                                <img alt="Image placeholder" src="/static/assets/img/theme/team-4.jpg" />
+                            </span>
+                            <div class="media-body ml-2 d-none d-lg-block">
+                                <span class="mb-0 text-sm font-weight-bold">dmosciszko</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <div class="dropdown-header noti-title">
+                            <h6 class="text-overflow m-0">Welcome!</h6>
+                        </div>
+                        <a href="/profile.html" class="dropdown-item">
+                            <i class="ni ni-single-02"></i>
+                            <span>My profile</span>
+                        </a>
+                        <a href="/settings" class="dropdown-item">
+                            <i class="ni ni-settings-gear-65"></i>
+                            <span>Settings</span>
+                        </a>
+                        <a href="/calendar_show" class="dropdown-item">
+                            <i class="ni ni-calendar-grid-58"></i>
+                            <span>Activity</span>
+                        </a>
+                        <a href="https://onenine.cloud/contact-us" class="dropdown-item">
+                            <i class="ni ni-support-16"></i>
+                            <span>Support</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="/logout" class="dropdown-item">
+                            <i class="ni ni-user-run"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <button
+                type="button"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#exampleModal"
+                style="position: fixed; z-index: 1; right: 0; top: 50%"
+            >
+                <span class="btn-inner--icon"><i class="ni ni-settings-gear-65"></i></span>
+            </button>
+            <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+            >
+                <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 70% !important">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Glossary of Terms</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="table-responsive">
+                                <div>
+                                    <table class="table align-items-center">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th scope="col" class="sort" data-sort="name">Key Concept</th>
+                                                <th scope="col" class="sort" data-sort="budget">Link to Concept</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="list">
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="media align-items-center">
+                                                        <div class="media-body">
+                                                            <span class="name mb-0 text-sm">Regression</span>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <td class="budget">
+                                                    <a
+                                                        href="https://www.analyticsvidhya.com/blog/2020/10/linear-regression-for-absolute-beginners-with-implementation-in-python/"
+                                                        target="_blank"
+                                                        >Click here</a
+                                                    >
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="media align-items-center">
+                                                        <div class="media-body">
+                                                            <span class="name mb-0 text-sm">Clustering</span>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <td class="budget">
+                                                    <a
+                                                        href="https://www.javatpoint.com/clustering-in-machine-learning"
+                                                        target="_blank"
+                                                        >Click here</a
+                                                    >
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="media align-items-center">
+                                                        <div class="media-body">
+                                                            <span class="name mb-0 text-sm">AUTOML</span>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <td class="budget">
+                                                    <a
+                                                        href="https://wiki.pathmind.com/automl-automated-machine-learning-ai"
+                                                        target="_blank"
+                                                        >Click here</a
+                                                    >
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="media align-items-center">
+                                                        <div class="media-body">
+                                                            <span class="name mb-0 text-sm">Classification</span>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <td class="budget">
+                                                    <a
+                                                        href="https://www.javatpoint.com/classification-algorithm-in-machine-learning"
+                                                        target="_blank"
+                                                        >Click here</a
+                                                    >
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="media align-items-center">
+                                                        <div class="media-body">
+                                                            <span class="name mb-0 text-sm"
+                                                                >Reinforcement Learning</span
+                                                            >
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <td class="budget">
+                                                    <a
+                                                        href="https://www.analyticsvidhya.com/blog/2021/02/introduction-to-reinforcement-learning-for-beginners/"
+                                                        target="_blank"
+                                                        >Click here</a
+                                                    >
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="media align-items-center">
+                                                        <div class="media-body">
+                                                            <span class="name mb-0 text-sm">Deep Learning</span>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <td class="budget">
+                                                    <a
+                                                        href="https://www.guru99.com/deep-learning-tutorial.html"
+                                                        target="_blank"
+                                                        >Click here</a
+                                                    >
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="media align-items-center">
+                                                        <div class="media-body">
+                                                            <span class="name mb-0 text-sm"
+                                                                >Natural Language Processing (NLP)</span
+                                                            >
+                                                        </div>
+                                                    </div>
+                                                </th>
+                
+    <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4 text-primary">
+        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+            <li class="breadcrumb-item text-primary">
+                <a href="/"><i class="fas fa-home text-primary"></i></a>
+            </li>
+            <li class="breadcrumb-item text-primary"><a href="/learn_ai" class="text-primary">Learn</a></li>
+            <li class="breadcrumb-item text-primary active" aria-current="page">Artificial Intelligence</li>
+        </ol>
+    </nav>
+    <div class="container-fluid mt-2">
+        <select name="version-select" id="version-select" class="custom-select">
+            <option value="all" selected="">ALL</option>
+            <option value="ai-for-nontech">AI for Non technical Aspirants</option>
+            <option value="what-is-ai">What is AI</option>
+            <option value="ai-full-course">AI full course</option>
+            <option value="ai-in-ten-mins">AI in 10 minutes</option>get-started-ai-ml
+            <option value="get-started-ai-ml">Get Started with AI and ML</option>
+        </select>
+        <br>
+        <br>
+
+        <div class="row ai-row">
+            <div class="col-4 ai-for-nontech">
+                <div class="card" id="ai-for-nontech">
+                    <iframe class="card-img-top" src="https://www.youtube.com/embed/WEBqU1JoqYA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0"></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Artificial Intelligence AI for non-technical aspirants</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This video is designed for those with little or no background in Artificial Intelligence and
+                            does not require any programming skills. It is designed to give you a firm understanding of
+                            what is AI, its applications and use cases across various industries. In this program you
+                            will get familiar to terms like Structured/Unstructured data, Supervised/unsupervised
+                            learning, Machine Learning, Deep Learning and Neural Networks.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 what-is-ai">
+                <div class="card">
+                    <iframe class="card-img-top" src="https://www.youtube.com/embed/ad79nYk2keg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0"></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">
+                            Artificial Intelligence In 5 Minutes | What Is Artificial Intelligence?
+                        </h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This video on Artificial Intelligence introduces you to Artificial intelligence with a fun
+                            and simple approach. We will talk about what is Artificial Intelligence, how it's different
+                            from Machine Learning and deep learning, its features, types, and scope. We also look at
+                            some interesting applications of Artificial Intelligence.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 ai-full-course">
+                <div class="card">
+                    <iframe class="card-img-top" src="https://www.youtube.com/embed/JMUxmLyrhSk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0"></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">
+                            Artificial Intelligence Full Course | Artificial Intelligence Tutorial for Beginners
+                        </h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This video on "Artificial Intelligence" will provide you with a comprehensive and detailed
+                            knowledge of Artificial Intelligence concepts with hands-on examples.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 ai-in-ten-mins">
+                <div class="card">
+                    <iframe class="card-img-top" src="https://www.youtube.com/embed/cW9shEB8h5E" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0"></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">
+                            Artificial Intelligence In 10 Minutes | What Is Artificial Intelligence?| AI Explained
+                        </h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            Artificial Intelligence is the most debated technology of the 21st century. It is widely
+                            used to solve complex problems and ease human tasks. In this video, you will learn AI in 10
+                            minutes. You will understand a brief history of AI and look into what Artificial
+                            Intelligence is. Then you will see the types of AI and learn the different applications of
+                            AI. Finally, we'll see what the future of AI holds.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 get-started-ai-ml">
+                <div class="card">
+                    <iframe class="card-img-top" src="https://www.youtube.com/embed/nl7kDPYD20A" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0"></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">How to Get Started with Machine Learning &amp; AI</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            So how do you get started with machine learning and AI? What should you learn first? Well in
+                            this video we will be discussing the exact things you need to learn to get started with
+                            machine learning. We will be talking about which language to learn, how much math you need
+                            and what ML algorithms to learn first.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                                <td class="budget">
+                                                    <a
+                                                        href="https://www.analyticsvidhya.com/blog/2021/02/basics-of-natural-language-processing-nlp-basics/"
+                                                        target="_blank"
+                                                        >Click here</a
+                                                    >
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="media align-items-center">
+                                                        <div class="media-body">
+                                                            <span class="name mb-0 text-sm">Recommender Systems</span>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <td class="budget">
+                                                    <a
+                                                        href="https://www.kdnuggets.com/2019/09/machine-learning-recommender-systems.html"
+                                                        target="_blank"
+                                                        >Click here</a
+                                                    >
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <br /><br />
+                            <div class="table-responsive">
+                                <div>
+                                    <table id="glossaryTerms" class="table align-items-center">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th scope="col" class="sort" data-sort="name">Key Concept</th>
+                                                <th scope="col" class="sort" data-sort="budget">Definition</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <a href="https://onenine.cloud/platform" target="_blank">
+                                <button type="button" class="btn btn-primary">View Documentation</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script src="/static/assets/vendor/jquery/dist/jquery.min.js"></script>
+<script src="/static/assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/suneditor@latest/src/lang/ko.js"></script>
+<script src="/static/assets/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="/static/assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="/static/assets/vendor/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+<script src="/static/assets/vendor/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="/static/assets/vendor/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="/static/assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="/static/assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
+<script src="/static/assets/vendor/select2/dist/js/select2.min.js"></script>
+<script src="/static/assets/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.min.js"></script>
+<script>
+    let data = [
+        {
+            term: " A/B testing",
+            definition:
+                "A statistical way of comparing two (or more) techniques, typically an incumbent against a new rival. A/B testing aims to determine not only which technique performs better but also to understand whether the difference is statistically significant. A/B testing usually considers only two techniques using one measurement, but it can be applied to any finite number of techniques and measures.",
+        },
+        {
+            term: " accuracy",
+            definition:
+                " The fraction of predictions that a classification model got right. In multi-class classification , accuracy is defined as follows: ",
+        },
+        {
+            term: "action",
+            definition: "",
+        },
+        {
+            term: "activation function",
+            definition:
+                " A function (for example, ReLU or sigmoid ) that takes in the weighted sum of all of the inputs from the previous layer and then generates and passes an output value (typically nonlinear) to the next layer. ",
+        },
+        {
+            term: "active learning",
+            definition:
+                " A training approach in which the algorithm chooses some of the data it learns from. Active learning is particularly valuable when labeled examples are scarce or expensive to obtain. Instead of blindly seeking a diverse range of labeled examples, an active learning algorithm selectively seeks the particular range of examples it needs for learning. ",
+        },
+        {
+            term: " AdaGrad",
+            definition:
+                " A sophisticated gradient descent algorithm that rescales the gradients of each parameter, effectively giving each parameter an independent learning rate . For a full explanation, see this paper . ",
+        },
+        // {
+        // "term":" agent",
+        // "definition":""
+        // },
+        // {
+        // "term":" agglomerative clustering",
+        // "definition":""
+        // },
+        {
+            term: " AR",
+            definition: " Abbreviation for augmented reality . ",
+        },
+        {
+            term: " area under the PR curve",
+            definition: " See PR AUC (Area under the PR Curve) . ",
+        },
+        {
+            term: " area under the ROC curve",
+            definition: " See AUC (Area under the ROC curve) . ",
+        },
+        {
+            term: " artificial general intelligence",
+            definition:
+                " A non-human mechanism that demonstrates a broad range of problem solving, creativity, and adaptability. For example, a program demonstrating artificial general intelligence could translate text, compose symphonies, and excel at games that have not yet been invented. ",
+        },
+        {
+            term: " artificial intelligence",
+            definition:
+                "A non-human program or model that can solve sophisticated tasks. For example, a program or model that translates text or a program or model that identifies diseases from radiologic images both exhibit artificial intelligence.",
+        },
+        // {
+        // "term":" attribute",
+        // "definition":""
+        // },
+        {
+            term: " AUC (Area under the ROC Curve)",
+            definition: " An evaluation metric that considers all possible classification thresholds . ",
+        },
+        // {
+        // "term":" augmented reality",
+        // "definition":""
+        // },
+        // {
+        // "term":" automation bias ",
+        // "definition":""
+        // },
+        {
+            term: " average precision ",
+            definition:
+                " A metric for summarizing the performance of a ranked sequence of results. Average precision is calculated by taking the average of the precision values for each relevant result (each result in the ranked list where the recall increases relative to the previous result). ",
+        },
+        {
+            term: " backpropagation",
+            definition:
+                " The primary algorithm for performing gradient descent on neural networks . First, the output values of each node are calculated (and cached) in a forward pass. Then, the partial derivative of the error with respect to each parameter is calculated in a backward pass through the graph. ",
+        },
+        {
+            term: " bag of words",
+            definition:
+                "A representation of the words in a phrase or passage, irrespective of order. For example, bag of words represents the following three phrases identically:",
+        },
+        {
+            term: " baseline",
+            definition:
+                " A model used as a reference point for comparing how well another model (typically, a more complex one) is performing. For example, a logistic regression model might serve as a good baseline for a deep model . ",
+        },
+        {
+            term: " batch",
+            definition:
+                " The set of examples used in one iteration (that is, one gradient update) of model training . ",
+        },
+        {
+            term: " batch normalization",
+            definition:
+                " Normalizing the input or output of the activation functions in a hidden layer . Batch normalization can provide the following benefits: ",
+        },
+        {
+            term: " batch size",
+            definition:
+                " The number of examples in a batch . For example, the batch size of SGD is 1, while the batch size of a mini-batch is usually between 10 and 1000. Batch size is usually fixed during training and inference ; however, TensorFlow does permit dynamic batch sizes. ",
+        },
+        {
+            term: " Bayesian neural network",
+            definition:
+                " A probabilistic neural network that accounts for uncertainty in weights and outputs. A standard neural network regression model typically predicts a scalar value; for example, a model predicts a house price of 853,000. By contrast, a Bayesian neural network predicts a distribution of values; for example, a model predicts a house price of 853,000 with a standard deviation of 67,200. A Bayesian neural network relies on Bayes' Theorem to calculate uncertainties in weights and predictions. A Bayesian neural network can be useful when it is important to quantify uncertainty, such as in models related to pharmaceuticals. Bayesian neural networks can also help prevent overfitting . ",
+        },
+        // {
+        // "term":" Bellman equation",
+        // "definition":""
+        // },
+        // {
+        // "term":" bias (ethics/fairness)",
+        // "definition":""
+        // },
+        {
+            term: " bias (math)",
+            definition:
+                " An intercept or offset from an origin. Bias (also known as the bias term ) is referred to as b or w 0 in machine learning models. For example, bias is the b in the following formula: ",
+        },
+        // {
+        // "term":" bigram",
+        // "definition":""
+        // },
+        {
+            term: " binary classification",
+            definition: ` A type of classification task that outputs one of two mutually exclusive classes . For example, a machine learning model that evaluates email messages and outputs either "spam" or "not spam" is a binary classifier . `,
+        },
+        {
+            term: " binning",
+            definition: " See bucketing . ",
+        },
+        {
+            term: " boosting",
+            definition: ` A machine learning technique that iteratively combines a set of simple and not very accurate classifiers (referred to as "weak" classifiers) into a classifier with high accuracy (a "strong" classifier) by upweighting the examples that the model is currently misclassfying. `,
+        },
+        // {
+        // "term":" bounding box",
+        // "definition":""
+        // },
+        {
+            term: " broadcasting",
+            definition:
+                " Expanding the shape of an operand in a matrix math operation to dimensions compatible for that operation. For instance, linear algebra requires that the two operands in a matrix addition operation must have the same dimensions. Consequently, you can't add a matrix of shape (m, n) to a vector of length n. Broadcasting enables this operation by virtually expanding the vector of length n to a matrix of shape (m,n) by replicating the same values down each column. ",
+        },
+        {
+            term: " bucketing",
+            definition:
+                " Converting a (usually continuous ) feature into multiple binary features called buckets or bins, typically based on value range. For example, instead of representing temperature as a single continuous floating-point feature, you could chop ranges of temperatures into discrete bins. Given temperature data sensitive to a tenth of a degree, all temperatures between 0.0 and 15.0 degrees could be put into one bin, 15.1 to 30.0 degrees could be a second bin, and 30.1 to 50.0 degrees could be a third bin. ",
+        },
+        {
+            term: " calibration layer",
+            definition:
+                " A post-prediction adjustment, typically to account for prediction bias . The adjusted predictions and probabilities should match the distribution of an observed set of labels. ",
+        },
+        // {
+        // "term":" candidate generation",
+        // "definition":""
+        // },
+        {
+            term: " candidate sampling",
+            definition:
+                " A training-time optimization in which a probability is calculated for all the positive labels, using, for example, softmax , but only for a random sample of negative labels. For example, if we have an example labeled beagle and dog candidate sampling computes the predicted probabilities and corresponding loss terms for the beagle and dog class outputs in addition to a random subset of the remaining classes ( cat , lollipop , fence ). The idea is that the negative classes can learn from less frequent negative reinforcement as long as positive classes always get proper positive reinforcement, and this is indeed observed empirically. The motivation for candidate sampling is a computational efficiency win from not computing predictions for all negatives. ",
+        },
+        {
+            term: " categorical data",
+            definition:
+                " Features having a discrete set of possible values. For example, consider a categorical feature named house style , which has a discrete set of three possible values: Tudor, ranch, colonial . By representing house style as categorical data, the model can learn the separate impacts of Tudor , ranch , and colonial on house price. ",
+        },
+        // {
+        // "term":"centroid",
+        // "definition":""
+        // },
+        // {
+        // "term":" centroid-based clustering",
+        // "definition":""
+        // },
+        {
+            term: " checkpoint",
+            definition:
+                " Data that captures the state of the variables of a model at a particular time. Checkpoints enable exporting model weights , as well as performing training across multiple sessions. Checkpoints also enable training to continue past errors (for example, job preemption). Note that the graph itself is not included in a checkpoint. ",
+        },
+        {
+            term: " class",
+            definition:
+                " One of a set of enumerated target values for a label. For example, in a binary classification model that detects spam, the two classes are spam and not spam . In a multi-class classification model that identifies dog breeds, the classes would be poodle , beagle , pug , and so on. ",
+        },
+        {
+            term: " classification model",
+            definition:
+                " A type of machine learning model for distinguishing among two or more discrete classes. For example, a natural language processing classification model could determine whether an input sentence was in French, Spanish, or Italian. Compare with regression model . ",
+        },
+        {
+            term: " classification threshold",
+            definition:
+                " A scalar-value criterion that is applied to a model's predicted score in order to separate the positive class from the negative class . Used when mapping logistic regression results to binary classification . For example, consider a logistic regression model that determines the probability of a given email message being spam. If the classification threshold is 0.9, then logistic regression values above 0.9 are classified as spam and those below 0.9 are classified as not spam . ",
+        },
+        {
+            term: " class-imbalanced dataset",
+            definition:
+                " A binary classification problem in which the labels for the two classes have significantly different frequencies. For example, a disease dataset in which 0.0001 of examples have positive labels and 0.9999 have negative labels is a class-imbalanced problem, but a football game predictor in which 0.51 of examples label one team winning and 0.49 label the other team winning is not a class-imbalanced problem. ",
+        },
+        {
+            term: " clipping",
+            definition:
+                " A technique for handling outliers . Specifically, reducing feature values that are greater than a set maximum value down to that maximum value. Also, increasing feature values that are less than a specific minimum value up to that minimum value. ",
+        },
+        // {
+        // "term":" Cloud TPU ",
+        // "definition":""
+        // },
+        // {
+        // "term":"clustering",
+        // "definition":""
+        // },
+        {
+            term: " co-adaptation",
+            definition:
+                " When neurons predict patterns in training data by relying almost exclusively on outputs of specific other neurons instead of relying on the network's behavior as a whole. When the patterns that cause co-adaption are not present in validation data, then co-adaptation causes overfitting. Dropout regularization reduces co-adaptation because dropout ensures neurons cannot rely solely on specific other neurons. ",
+        },
+        // {
+        // "term":" collaborative filtering",
+        // "definition":""
+        // },
+        // {
+        // "term":" confirmation bias ",
+        // "definition":""
+        // },
+        {
+            term: " confusion matrix",
+            definition:
+                " An NxN table that summarizes how successful a classification model's predictions were; that is, the correlation between the label and the model's classification. One axis of a confusion matrix is the label that the model predicted, and the other axis is the actual label. N represents the number of classes . In a binary classification problem, N=2. For example, here is a sample confusion matrix for a binary classification problem: ",
+        },
+        {
+            term: " continuous feature",
+            definition:
+                " A floating-point feature with an infinite range of possible values. Contrast with discrete feature . ",
+        },
+        {
+            term: " convenience sampling",
+            definition:
+                "Using a dataset not gathered scientifically in order to run quick experiments. Later on, it's essential to switch to a scientifically gathered dataset.",
+        },
+        {
+            term: " convergence",
+            definition:
+                " Informally, often refers to a state reached during training in which training loss and validation loss change very little or not at all with each iteration after a certain number of iterations. In other words, a model reaches convergence when additional training on the current data will not improve the model. In deep learning , loss values sometimes stay constant or nearly so for many iterations before finally descending, temporarily producing a false sense of convergence. ",
+        },
+        {
+            term: " convex function",
+            definition:
+                " A function in which the region above the graph of the function is a convex set . The prototypical convex function is shaped something like the letter U . For example, the following are all convex functions: ",
+        },
+        {
+            term: "convex optimization",
+            definition:
+                " The process of using mathematical techniques such as gradient descent to find the minimum of a convex function . A great deal of research in machine learning has focused on formulating various problems as convex optimization problems and in solving those problems more efficiently. ",
+        },
+        {
+            term: "convex set",
+            definition:
+                "A subset of Euclidean space such that a line drawn between any two points in the subset remains completely within the subset. For instance, the following two shapes are convex sets:",
+        },
+        // {
+        // "term":"convolution",
+        // "definition":""
+        // },
+        // {
+        // "term":"convolutional filter",
+        // "definition":""
+        // },
+        // {
+        // "term":"convolutional layer",
+        // "definition":""
+        // },
+        // {
+        // "term":"convolutional neural network",
+        // "definition":""
+        // },
+        // {
+        // "term":"convolutional operation",
+        // "definition":""
+        // },
+        {
+            term: " cost",
+            definition: " Synonym for loss . ",
+        },
+        {
+            term: " counterfactual fairness ",
+            definition: " fairness metric ",
+        },
+        // {
+        // "term":" coverage bias ",
+        // "definition":""
+        // },
+        {
+            term: " crash blossom",
+            definition:
+                " A sentence or phrase with an ambiguous meaning. Crash blossoms present a significant problem in natural language understanding . For example, the headline Red Tape Holds Up Skyscraper is a crash blossom because an NLU model could interpret the headline literally or figuratively. ",
+        },
+        // {
+        // "term":" critic",
+        // "definition":""
+        // },
+        {
+            term: " cross-entropy",
+            definition:
+                " A generalization of Log Loss to multi-class classification problems . Cross-entropy quantifies the difference between two probability distributions. See also perplexity . ",
+        },
+        {
+            term: " cross-validation",
+            definition:
+                " A mechanism for estimating how well a model will generalize to new data by testing the model against one or more non-overlapping data subsets withheld from the training set . ",
+        },
+        // {
+        // "term":" custom Estimator",
+        // "definition":""
+        // },
+        {
+            term: " data analysis",
+            definition:
+                "Obtaining an understanding of data by considering samples, measurement, and visualization. Data analysis can be particularly useful when a dataset is first received, before one builds the first model. It is also crucial in understanding experiments and debugging problems with the system.",
+        },
+        {
+            term: " DataFrame",
+            definition:
+                " A popular datatype for representing datasets in pandas . A DataFrame is analogous to a table. Each column of the DataFrame has a name (a header), and each row is identified by a number. ",
+        },
+        {
+            term: " data set or dataset",
+            definition: " A collection of examples . ",
+        },
+        // {
+        // "term":" Dataset API (tf.data)",
+        // "definition":""
+        // },
+        {
+            term: " decision boundary",
+            definition:
+                " The separator between classes learned by a model in a binary class or multi-class classification problems . For example, in the following image representing a binary classification problem, the decision boundary is the frontier between the orange class and the blue class: ",
+        },
+        {
+            term: " decision threshold",
+            definition: " Synonym for classification threshold . ",
+        },
+        {
+            term: " decision tree",
+            definition:
+                "A model represented as a sequence of branching statements. For example, the following over-simplified decision tree branches a few times to predict the price of a house (in thousands of USD). According to this decision tree, a house larger than 160 square meters, having more than three bedrooms, and built less than 10 years ago would have a predicted price of 510 thousand USD.",
+        },
+        {
+            term: " deep model",
+            definition: " A type of neural network containing multiple hidden layers . ",
+        },
+        {
+            term: " deep neural network",
+            definition: " Synonym for deep model . ",
+        },
+        // {
+        // "term":" Deep Q-Network (DQN)",
+        // "definition":""
+        // },
+        // {
+        // "term":" demographic parity",
+        // "definition":""
+        // },
+        {
+            term: " dense feature",
+            definition:
+                " A feature in which most values are non-zero, typically a Tensor of floating-point values. Contrast with sparse feature . ",
+        },
+        {
+            term: " dense layer",
+            definition: " Synonym for fully connected layer . ",
+        },
+        {
+            term: " depth",
+            definition:
+                " The number of layers (including any embedding layers) in a neural network that learn weights. For example, a neural network with 5 hidden layers and 1 output layer has a depth of 6. ",
+        },
+        // {
+        // "term":"depthwise separable convolutional neural network (sepCNN)",
+        // "definition":""
+        // },
+        // {
+        // "term":" device",
+        // "definition":""
+        // },
+        {
+            term: " dimension reduction",
+            definition:
+                " Decreasing the number of dimensions used to represent a particular feature in a feature vector, typically by converting to an embedding . ",
+        },
+        {
+            term: " dimensions ",
+            definition: "Overloaded term having any of the following definitions:",
+        },
+        {
+            term: " discrete feature",
+            definition:
+                " A feature with a finite set of possible values. For example, a feature whose values may only be animal , vegetable , or mineral is a discrete (or categorical) feature. Contrast with continuous feature . ",
+        },
+        {
+            term: " discriminative model",
+            definition:
+                " A model that predicts labels from a set of one or more features. More formally, discriminative models define the conditional probability of an output given the features and weights; that is: ",
+        },
+        {
+            term: " discriminator",
+            definition: "A system that determines whether examples are real or fake.",
+        },
+        // {
+        // "term":" disparate impact",
+        // "definition":""
+        // },
+        // {
+        // "term":" disparate treatment",
+        // "definition":""
+        // },
+        // {
+        // "term":" divisive clustering",
+        // "definition":""
+        // },
+        // {
+        // "term":" downsampling",
+        // "definition":""
+        // },
+        // {
+        // "term":" DQN",
+        // "definition":""
+        // },
+        {
+            term: " dropout regularization",
+            definition:
+                " A form of regularization useful in training neural networks . Dropout regularization works by removing a random selection of a fixed number of the units in a network layer for a single gradient step. The more units dropped out, the stronger the regularization. This is analogous to training the network to emulate an exponentially large ensemble of smaller networks. For full details, see Dropout: A Simple Way to Prevent Neural Networks from Overfitting . ",
+        },
+        {
+            term: " dynamic model",
+            definition:
+                " A model that is trained online in a continuously updating fashion. That is, data is continuously entering the model. ",
+        },
+        // {
+        // "term":" eager execution",
+        // "definition":""
+        // },
+        {
+            term: " early stopping",
+            definition:
+                " A method for regularization that involves ending model training before training loss finishes decreasing. In early stopping, you end model training when the loss on a validation dataset starts to increase, that is, when generalization performance worsens. ",
+        },
+        {
+            term: " embeddings",
+            definition:
+                "A categorical feature represented as a continuous-valued feature. Typically, an embedding is a translation of a high-dimensional vector into a low-dimensional space. For example, you can represent the words in an English sentence in either of the following two ways:",
+        },
+        {
+            term: " embedding space",
+            definition:
+                "The d-dimensional vector space that features from a higher-dimensional vector space are mapped to. Ideally, the embedding space contains a structure that yields meaningful mathematical results; for example, in an ideal embedding space, addition and subtraction of embeddings can solve word analogy tasks.",
+        },
+        {
+            term: " empirical risk minimization (ERM)",
+            definition:
+                " Choosing the function that minimizes loss on the training set. Contrast with structural risk minimization . ",
+        },
+        {
+            term: " ensemble",
+            definition:
+                " A merger of the predictions of multiple models . You can create an ensemble via one or more of the following: ",
+        },
+        // {
+        // "term":" environment",
+        // "definition":""
+        // },
+        // {
+        // "term":" episode",
+        // "definition":""
+        // },
+        {
+            term: " epoch",
+            definition:
+                " A full training pass over the entire dataset such that each example has been seen once. Thus, an epoch represents N / batch size training iterations , where N is the total number of examples. ",
+        },
+        // {
+        // "term":" epsilon greedy policy",
+        // "definition":""
+        // },
+        {
+            term: " equality of opportunity ",
+            definition: " fairness metric ",
+        },
+        {
+            term: " equalized odds",
+            definition: " fairness metric ",
+        },
+        // {
+        // "term":" Estimator",
+        // "definition":""
+        // },
+        {
+            term: " example",
+            definition:
+                " One row of a dataset. An example contains one or more features and possibly a label . See also labeled example and unlabeled example . ",
+        },
+        // {
+        // "term":" experience replay",
+        // "definition":""
+        // },
+        // {
+        // "term":" experimenter's bias ",
+        // "definition":""
+        // },
+        // {
+        // "term":" exploding gradient problem",
+        // "definition":""
+        // },
+        // {
+        // "term":" fairness constraint",
+        // "definition":""
+        // },
+        // {
+        // "term":" fairness metric",
+        // "definition":""
+        // },
+        {
+            term: " false negative (FN)",
+            definition:
+                " An example in which the model mistakenly predicted the negative class . For example, the model inferred that a particular email message was not spam (the negative class), but that email message actually was spam. ",
+        },
+        {
+            term: " false positive (FP)",
+            definition:
+                " An example in which the model mistakenly predicted the positive class . For example, the model inferred that a particular email message was spam (the positive class), but that email message was actually not spam. ",
+        },
+        {
+            term: " false positive rate (FPR)",
+            definition: " The x-axis in an ROC curve . The false positive rate is defined as follows: ",
+        },
+        {
+            term: " feature",
+            definition: " An input variable used in making predictions . ",
+        },
+        // {
+        // "term":" Feature column (tf.feature_column)",
+        // "definition":""
+        // },
+        {
+            term: " feature cross",
+            definition:
+                " A synthetic feature formed by crossing (taking a Cartesian product of) individual binary features obtained from categorical data or from continuous features via bucketing . Feature crosses help represent nonlinear relationships. ",
+        },
+        {
+            term: " feature engineering",
+            definition:
+                " The process of determining which features might be useful in training a model, and then converting raw data from log files and other sources into said features. In TensorFlow, feature engineering often means converting raw log file entries to tf.Example protocol buffers. See also tf.Transform . ",
+        },
+        {
+            term: " feature extraction",
+            definition: "Overloaded term having either of the following definitions:",
+        },
+        {
+            term: " feature set",
+            definition:
+                " The group of features your machine learning model trains on. For example, postal code, property size, and property condition might comprise a simple feature set for a model that predicts housing prices. ",
+        },
+        // {
+        // "term":" feature spec",
+        // "definition":""
+        // },
+        {
+            term: " feature vector",
+            definition: " The list of feature values representing an example passed into a model. ",
+        },
+        {
+            term: " federated learning",
+            definition:
+                " A distributed machine learning approach that trains machine learning models using decentralized examples residing on devices such as smartphones. In federated learning, a subset of devices downloads the current model from a central coordinating server. The devices use the examples stored on the devices to make improvements to the model. The devices then upload the model improvements (but not the training examples) to the coordinating server, where they are aggregated with other updates to yield an improved global model. After the aggregation, the model updates computed by devices are no longer needed, and can be discarded. ",
+        },
+        {
+            term: " feedback loop",
+            definition:
+                "In machine learning, a situation in which a model's predictions influence the training data for the same model or another model. For example, a model that recommends movies will influence the movies that people see, which will then influence subsequent movie recommendation models.",
+        },
+        {
+            term: " feedforward neural network (FFN)",
+            definition:
+                " A neural network without cyclic or recursive connections. For example, traditional deep neural networks are feedforward neural networks. Contrast with recurrent neural networks , which are cyclic. ",
+        },
+        {
+            term: " few-shot learning",
+            definition:
+                "A machine learning approach, often used for object classification, designed to learn effective classifiers from only a small number of training examples.",
+        },
+        {
+            term: "fine tuning",
+            definition:
+                " Perform a secondary optimization to adjust the parameters of an already trained model to fit a new problem. Fine tuning often refers to refitting the weights of a trained unsupervised model to a supervised model. ",
+        },
+        // {
+        // "term":"forget gate",
+        // "definition":""
+        // },
+        {
+            term: " full softmax",
+            definition: " See softmax . Contrast with candidate sampling . ",
+        },
+        {
+            term: " fully connected layer",
+            definition:
+                " A hidden layer in which each node is connected to every node in the subsequent hidden layer. ",
+        },
+        {
+            term: " GAN",
+            definition: " Abbreviation for generative adversarial network . ",
+        },
+        {
+            term: " generalization",
+            definition:
+                "Refers to your model's ability to make correct predictions on new, previously unseen data as opposed to the data used to train the model.",
+        },
+        {
+            term: " generalization curve",
+            definition:
+                " A loss curve showing both the training set and the validation set . A generalization curve can help you detect possible overfitting . For example, the following generalization curve suggests overfitting because loss for the validation set ultimately becomes significantly higher than for the training set. ",
+        },
+        {
+            term: " generalized linear model",
+            definition:
+                " A generalization of least squares regression models, which are based on Gaussian noise , to other types of models based on other types of noise, such as Poisson noise or categorical noise. Examples of generalized linear models include: ",
+        },
+        {
+            term: " generative adversarial network (GAN)",
+            definition:
+                " A system to create new data in which a generator creates data and a discriminator determines whether that created data is valid or invalid. ",
+        },
+        {
+            term: " generative model",
+            definition: "Practically speaking, a model that does either of the following:",
+        },
+        {
+            term: " generator",
+            definition: " The subsystem within a generative adversarial network that creates new examples . ",
+        },
+        {
+            term: " gradient",
+            definition:
+                " The vector of partial derivatives with respect to all of the independent variables. In machine learning, the gradient is the vector of partial derivatives of the model function. The gradient points in the direction of steepest ascent. ",
+        },
+        // {
+        // "term":" gradient clipping",
+        // "definition":""
+        // },
+        {
+            term: " gradient descent",
+            definition:
+                " A technique to minimize loss by computing the gradients of loss with respect to the model's parameters, conditioned on training data. Informally, gradient descent iteratively adjusts parameters, gradually finding the best combination of weights and bias to minimize loss. ",
+        },
+        // {
+        // "term":" graph",
+        // "definition":""
+        // },
+        // {
+        // "term":" graph execution",
+        // "definition":""
+        // },
+        // {
+        // "term":" greedy policy",
+        // "definition":""
+        // },
+        {
+            term: " ground truth",
+            definition:
+                " The correct answer. Reality. Since reality is often subjective, expert raters typically are the proxy for ground truth. ",
+        },
+        // {
+        // "term":" group attribution bias ",
+        // "definition":""
+        // },
+        {
+            term: " hashing",
+            definition:
+                " In machine learning, a mechanism for bucketing categorical data , particularly when the number of categories is large, but the number of categories actually appearing in the dataset is comparatively small. ",
+        },
+        {
+            term: " heuristic",
+            definition: `A quick solution to a problem, which may or may not be the best solution. For example, "With a heuristic, we achieved 86% accuracy. When we switched to a deep neural network, accuracy went up to 98%."`,
+        },
+        {
+            term: " hidden layer",
+            definition:
+                " A synthetic layer in a neural network between the input layer (that is, the features) and the output layer (the prediction). Hidden layers typically contain an activation function (such as ReLU ) for training. A deep neural network contains more than one hidden layer. ",
+        },
+        // {
+        // "term":" hierarchical clustering",
+        // "definition":""
+        // },
+        {
+            term: " hinge loss",
+            definition:
+                " A family of loss functions for classification designed to find the decision boundary as distant as possible from each training example, thus maximizing the margin between examples and the boundary. KSVMs use hinge loss (or a related function, such as squared hinge loss). For binary classification, the hinge loss function is defined as follows: ",
+        },
+        {
+            term: " holdout data",
+            definition: ` Examples intentionally not used ("held out") during training. The validation dataset and test dataset are examples of holdout data. Holdout data helps evaluate your model's ability to generalize to data other than the data it was trained on. The loss on the holdout set provides a better estimate of the loss on an unseen dataset than does the loss on the training set. `,
+        },
+        {
+            term: " hyperparameter",
+            definition: ` The "knobs" that you tweak during successive runs of training a model. For example, learning rate is a hyperparameter. `,
+        },
+        {
+            term: " hyperplane",
+            definition:
+                " A boundary that separates a space into two subspaces. For example, a line is a hyperplane in two dimensions and a plane is a hyperplane in three dimensions. More typically in machine learning, a hyperplane is the boundary separating a high-dimensional space. Kernel Support Vector Machines use hyperplanes to separate positive classes from negative classes, often in a very high-dimensional space. ",
+        },
+        {
+            term: " i.i.d.",
+            definition: " Abbreviation for independently and identically distributed . ",
+        },
+        // {
+        // "term":" image recognition",
+        // "definition":""
+        // },
+        {
+            term: " imbalanced dataset",
+            definition: " Synonym for class-imbalanced dataset . ",
+        },
+        // {
+        // "term":" implicit bias ",
+        // "definition":""
+        // },
+        // {
+        // "term":" incompatibility of fairness metrics",
+        // "definition":""
+        // },
+        {
+            term: "independently and identically distributed (i.i.d)",
+            definition:
+                " Data drawn from a distribution that doesn't change, and where each value drawn doesn't depend on values that have been drawn previously. An i.i.d. is the ideal gas of machine learning—a useful mathematical construct but almost never exactly found in the real world. For example, the distribution of visitors to a web page may be i.i.d. over a brief window of time; that is, the distribution doesn't change during that brief window and one person's visit is generally independent of another's visit. However, if you expand that window of time, seasonal differences in the web page's visitors may appear. ",
+        },
+        // {
+        // "term":" individual fairness",
+        // "definition":""
+        // },
+        {
+            term: " inference",
+            definition:
+                " In machine learning, often refers to the process of making predictions by applying the trained model to unlabeled examples . In statistics, inference refers to the process of fitting the parameters of a distribution conditioned on some observed data. (See the Wikipedia article on statistical inference .) ",
+        },
+        // {
+        // "term":" in-group bias ",
+        // "definition":""
+        // },
+        // {
+        // "term":" input function",
+        // "definition":""
+        // },
+        {
+            term: " input layer",
+            definition: " The first layer (the one that receives the input data) in a neural network . ",
+        },
+        {
+            term: " instance",
+            definition: " Synonym for example . ",
+        },
+        {
+            term: " interpretability",
+            definition:
+                " The degree to which a model's predictions can be readily explained. Deep models are often non-interpretable; that is, a deep model's different layers can be hard to decipher. By contrast, linear regression models and wide models are typically far more interpretable. ",
+        },
+        {
+            term: " inter-rater agreement",
+            definition:
+                " A measurement of how often human raters agree when doing a task. If raters disagree, the task instructions may need to be improved. Also sometimes called inter-annotator agreement or inter-rater reliability . See also Cohen's kappa , which is one of the most popular inter-rater agreement measurements. ",
+        },
+        // {
+        // "term":" intersection over union (IoU)",
+        // "definition":""
+        // },
+        {
+            term: "IoU",
+            definition: " Abbreviation for intersection over union . ",
+        },
+        // {
+        // "term":" item matrix",
+        // "definition":""
+        // },
+        // {
+        // "term":" items",
+        // "definition":""
+        // },
+        {
+            term: " iteration",
+            definition:
+                " A single update of a model's weights during training. An iteration consists of computing the gradients of the parameters with respect to the loss on a single batch of data. ",
+        },
+        {
+            term: " Keras",
+            definition:
+                " A popular Python machine learning API. Keras runs on several deep learning frameworks, including TensorFlow, where it is made available as tf.keras . ",
+        },
+        // {
+        // "term":" keypoints",
+        // "definition":""
+        // },
+        {
+            term: "Kernel Support Vector Machines (KSVMs)",
+            definition:
+                " A classification algorithm that seeks to maximize the margin between positive and negative classes by mapping input data vectors to a higher dimensional space. For example, consider a classification problem in which the input dataset has a hundred features. To maximize the margin between positive and negative classes, a KSVM could internally map those features into a million-dimension space. KSVMs uses a loss function called hinge loss . ",
+        },
+        // {
+        // "term":" k-means",
+        // "definition":""
+        // },
+        // {
+        // "term":" k-median",
+        // "definition":""
+        // },
+        {
+            term: " L 1 loss ",
+            definition:
+                " Loss function based on the absolute value of the difference between the values that a model is predicting and the actual values of the labels . L 1 loss is less sensitive to outliers than L 2 loss . ",
+        },
+        {
+            term: " L 1 regularization ",
+            definition:
+                " A type of regularization that penalizes weights in proportion to the sum of the absolute values of the weights. In models relying on sparse features , L 1 regularization helps drive the weights of irrelevant or barely relevant features to exactly 0, which removes those features from the model. Contrast with L 2 regularization . ",
+        },
+        {
+            term: " L 2 loss ",
+            definition: " See squared loss . ",
+        },
+        {
+            term: " L 2 regularization ",
+            definition:
+                " A type of regularization that penalizes weights in proportion to the sum of the squares of the weights. L 2 regularization helps drive outlier weights (those with high positive or low negative values) closer to 0 but not quite to 0. (Contrast with L1 regularization .) L 2 regularization always improves generalization in linear models. ",
+        },
+        {
+            term: " label",
+            definition: ` In supervised learning, the "answer" or "result" portion of an example . Each example in a labeled dataset consists of one or more features and a label. For instance, in a housing dataset, the features might include the number of bedrooms, the number of bathrooms, and the age of the house, while the label might be the house's price. In a spam detection dataset, the features might include the subject line, the sender, and the email message itself, while the label would probably be either "spam" or "not spam." `,
+        },
+        {
+            term: " labeled example",
+            definition:
+                " An example that contains features and a label . In supervised training, models learn from labeled examples. ",
+        },
+        {
+            term: " lambda",
+            definition: " Synonym for regularization rate . ",
+        },
+        // {
+        // "term":" landmarks",
+        // "definition":""
+        // },
+        {
+            term: " layer",
+            definition:
+                " A set of neurons in a neural network that process a set of input features, or the output of those neurons. ",
+        },
+        // {
+        // "term":" Layers API (tf.layers)",
+        // "definition":""
+        // },
+        {
+            term: " learning rate",
+            definition:
+                " A scalar used to train a model via gradient descent. During each iteration, the gradient descent algorithm multiplies the learning rate by the gradient. The resulting product is called the gradient step . ",
+        },
+        {
+            term: " least squares regression",
+            definition: " A linear regression model trained by minimizing L 2 Loss . ",
+        },
+        {
+            term: " linear model",
+            definition:
+                " A model that assigns one weight per feature to make predictions . (Linear models also incorporate a bias .) By contrast, the relationship of weights to features in deep models is not one-to-one. ",
+        },
+        {
+            term: " linear regression",
+            definition:
+                " Using the raw output (\(y'\)) of a linear model as the actual prediction in a regression model . The goal of a regression problem is to make a real-valued prediction. For example, if the raw output (\(y'\)) of a linear model is 8.37, then the prediction is 8.37. ",
+        },
+        {
+            term: " logistic regression",
+            definition:
+                " A classification model that uses a sigmoid function to convert a linear model's raw prediction (\(y'\)) into a value between 0 and 1. You can interpret the value between 0 and 1 in either of the following two ways: ",
+        },
+        {
+            term: " logits",
+            definition:
+                " The vector of raw (non-normalized) predictions that a classification model generates, which is ordinarily then passed to a normalization function. If the model is solving a multi-class classification problem, logits typically become an input to the softmax function. The softmax function then generates a vector of (normalized) probabilities with one value for each possible class. ",
+        },
+        {
+            term: " Log Loss",
+            definition: " The loss function used in binary logistic regression . ",
+        },
+        {
+            term: " log-odds",
+            definition: "The logarithm of the odds of some event.",
+        },
+        // {
+        // "term":" Long Short-Term Memory (LSTM)",
+        // "definition":""
+        // },
+        {
+            term: " loss",
+            definition:
+                " A measure of how far a model's predictions are from its label . Or, to phrase it more pessimistically, a measure of how bad the model is. To determine this value, a model must define a loss function. For example, linear regression models typically use mean squared error for a loss function, while logistic regression models use Log Loss . ",
+        },
+        {
+            term: " loss curve",
+            definition: " A graph of loss as a function of training iterations . For example: ",
+        },
+        {
+            term: " loss surface",
+            definition:
+                " A graph of weight(s) vs. loss. Gradient descent aims to find the weight(s) for which the loss surface is at a local minimum. ",
+        },
+        // {
+        // "term":" LSTM",
+        // "definition":""
+        // },
+        {
+            term: " machine learning",
+            definition:
+                "A program or system that builds (trains) a predictive model from input data. The system uses the learned model to make useful predictions from new (never-before-seen) data drawn from the same distribution as the one used to train the model. Machine learning also refers to the field of study concerned with these programs or systems.",
+        },
+        {
+            term: " majority class",
+            definition:
+                " The more common label in a class-imbalanced dataset . For example, given a dataset containing 99% non-spam labels and 1% spam labels, the non-spam labels are the majority class. ",
+        },
+        // {
+        // "term":" Markov decision process (MDP)",
+        // "definition":""
+        // },
+        // {
+        // "term":" Markov property",
+        // "definition":""
+        // },
+        {
+            term: " matplotlib",
+            definition:
+                " An open-source Python 2D plotting library. matplotlib helps you visualize different aspects of machine learning. ",
+        },
+        // {
+        // "term":" matrix factorization",
+        // "definition":""
+        // },
+        {
+            term: " Mean Absolute Error (MAE)",
+            definition:
+                "An error metric calculated by taking an average of absolute errors. In the context of evaluating a model’s accuracy, MAE is the average absolute difference between the expected and predicted values across all training examples. Specifically, for $n$ examples, for each value $y$ and its prediction $\hat{y}$, MAE is defined as follows:",
+        },
+        {
+            term: " Mean Squared Error (MSE)",
+            definition: ` The average squared loss per example. MSE is calculated by dividing the squared loss by the number of examples . The values that TensorFlow Playground displays for "Training loss" and "Test loss" are MSE. `,
+        },
+        // {
+        // "term":" metric",
+        // "definition":""
+        // },
+        {
+            term: " Metrics API (tf.metrics)",
+            definition:
+                " A TensorFlow API for evaluating models. For example, tf.metrics.accuracy determines how often a model's predictions match labels. When writing a custom Estimator , you invoke Metrics API functions to specify how your model should be evaluated. ",
+        },
+        {
+            term: " mini-batch",
+            definition:
+                " A small, randomly selected subset of the entire batch of examples run together in a single iteration of training or inference. The batch size of a mini-batch is usually between 10 and 1,000. It is much more efficient to calculate the loss on a mini-batch than on the full training data. ",
+        },
+        {
+            term: " mini-batch stochastic gradient descent",
+            definition:
+                " A gradient descent algorithm that uses mini-batches . In other words, mini-batch stochastic gradient descent estimates the gradient based on a small subset of the training data. Regular stochastic gradient descent uses a mini-batch of size 1. ",
+        },
+        {
+            term: " minimax loss",
+            definition:
+                " A loss function for generative adversarial networks , based on the cross-entropy between the distribution of generated data and real data. ",
+        },
+        {
+            term: " minority class",
+            definition:
+                " The less common label in a class-imbalanced dataset . For example, given a dataset containing 99% non-spam labels and 1% spam labels, the spam labels are the minority class. ",
+        },
+        {
+            term: " ML",
+            definition: " Abbreviation for machine learning . ",
+        },
+        // {
+        // "term":" MNIST",
+        // "definition":""
+        // },
+        {
+            term: " model",
+            definition:
+                "The representation of what a machine learning system has learned from the training data. Within TensorFlow, model is an overloaded term, which can have either of the following two related meanings:",
+        },
+        {
+            term: " model capacity",
+            definition:
+                " The complexity of problems that a model can learn. The more complex the problems that a model can learn, the higher the model’s capacity. A model’s capacity typically increases with the number of model parameters. For a formal definition of classifier capacity, see VC dimension . ",
+        },
+        // {
+        // "term":" model function",
+        // "definition":""
+        // },
+        {
+            term: " model training",
+            definition: " The process of determining the best model . ",
+        },
+        {
+            term: " Momentum",
+            definition:
+                "A sophisticated gradient descent algorithm in which a learning step depends not only on the derivative in the current step, but also on the derivatives of the step(s) that immediately preceded it. Momentum involves computing an exponentially weighted moving average of the gradients over time, analogous to momentum in physics. Momentum sometimes prevents learning from getting stuck in local minima.",
+        },
+        {
+            term: " multi-class classification",
+            definition:
+                " Classification problems that distinguish among more than two classes. For example, there are approximately 128 species of maple trees, so a model that categorized maple tree species would be multi-class. Conversely, a model that divided emails into only two categories ( spam and not spam ) would be a binary classification model . ",
+        },
+        {
+            term: " multi-class logistic regression",
+            definition: " Using logistic regression in multi-class classification problems. ",
+        },
+        {
+            term: " multinomial classification",
+            definition: " Synonym for multi-class classification . ",
+        },
+        {
+            term: " NaN trap",
+            definition:
+                " When one number in your model becomes a NaN during training, which causes many or all other numbers in your model to eventually become a NaN. ",
+        },
+        {
+            term: " natural language understanding",
+            definition:
+                "Determining a user's intentions based on what the user typed or said. For example, a search engine uses natural language understanding to determine what the user is searching for based on what the user typed or said.",
+        },
+        {
+            term: " negative class",
+            definition: ` In binary classification , one class is termed positive and the other is termed negative. The positive class is the thing we're looking for and the negative class is the other possibility. For example, the negative class in a medical test might be "not tumor." The negative class in an email classifier might be "not spam." See also positive class . `,
+        },
+        {
+            term: " neural network",
+            definition:
+                " A model that, taking inspiration from the brain, is composed of layers (at least one of which is hidden ) consisting of simple connected units or neurons followed by nonlinearities. ",
+        },
+        {
+            term: " neuron",
+            definition:
+                " A node in a neural network , typically taking in multiple input values and generating one output value. The neuron calculates the output value by applying an activation function (nonlinear transformation) to a weighted sum of input values. ",
+        },
+        // {
+        // "term":" N-gram",
+        // "definition":""
+        // },
+        {
+            term: " NLU",
+            definition: " Abbreviation for natural language understanding . ",
+        },
+        {
+            term: " node (neural network)",
+            definition: " A neuron in a hidden layer . ",
+        },
+        // {
+        // "term":" node (TensorFlow graph)",
+        // "definition":""
+        // },
+        {
+            term: " noise",
+            definition:
+                "Broadly speaking, anything that obscures the signal in a dataset. Noise can be introduced into data in a variety of ways. For example:",
+        },
+        // {
+        // "term":" non-response bias ",
+        // "definition":""
+        // },
+        {
+            term: " normalization",
+            definition:
+                "The process of converting an actual range of values into a standard range of values, typically -1 to +1 or 0 to 1. For example, suppose the natural range of a certain feature is 800 to 6,000. Through subtraction and division, you can normalize those values into the range -1 to +1.",
+        },
+        {
+            term: " numerical data",
+            definition:
+                " Features represented as integers or real-valued numbers. For example, in a real estate model, you would probably represent the size of a house (in square feet or square meters) as numerical data. Representing a feature as numerical data indicates that the feature's values have a mathematical relationship to each other and possibly to the label. For example, representing the size of a house as numerical data indicates that a 200 square-meter house is twice as large as a 100 square-meter house. Furthermore, the number of square meters in a house probably has some mathematical relationship to the price of the house. ",
+        },
+        {
+            term: " NumPy",
+            definition:
+                " An open-source math library that provides efficient array operations in Python. pandas is built on NumPy. ",
+        },
+        {
+            term: " objective",
+            definition: "A metric that your algorithm is trying to optimize.",
+        },
+        {
+            term: " objective function",
+            definition:
+                " The mathematical formula or metric that a model aims to optimize. For example, the objective function for linear regression is usually squared loss . Therefore, when training a linear regression model, the goal is to minimize squared loss. ",
+        },
+        {
+            term: " offline inference",
+            definition:
+                " Generating a group of predictions , storing those predictions, and then retrieving those predictions on demand. Contrast with online inference . ",
+        },
+        {
+            term: " one-hot encoding",
+            definition: "A sparse vector in which:",
+        },
+        {
+            term: " one-shot learning",
+            definition:
+                "A machine learning approach, often used for object classification, designed to learn effective classifiers from a single training example.",
+        },
+        {
+            term: " one-vs.-all",
+            definition:
+                " Given a classification problem with N possible solutions, a one-vs.-all solution consists of N separate binary classifiers —one binary classifier for each possible outcome. For example, given a model that classifies examples as animal, vegetable, or mineral, a one-vs.-all solution would provide the following three separate binary classifiers: ",
+        },
+        {
+            term: " online inference",
+            definition: " Generating predictions on demand. Contrast with offline inference . ",
+        },
+        // {
+        // "term":" Operation (op)",
+        // "definition":""
+        // },
+        {
+            term: " optimizer",
+            definition:
+                " A specific implementation of the gradient descent algorithm. TensorFlow's base class for optimizers is tf.train.Optimizer . Popular optimizers include: ",
+        },
+        // {
+        // "term":" out-group homogeneity bias ",
+        // "definition":""
+        // },
+        {
+            term: " outliers",
+            definition:
+                "Values distant from most other values. In machine learning, any of the following are outliers:",
+        },
+        {
+            term: " output layer",
+            definition: `The "final" layer of a neural network. The layer containing the answer(s).`,
+        },
+        {
+            term: " overfitting",
+            definition:
+                " Creating a model that matches the training data so closely that the model fails to make correct predictions on new data. ",
+        },
+        {
+            term: " pandas",
+            definition:
+                " A column-oriented data analysis API. Many machine learning frameworks, including TensorFlow, support pandas data structures as input. See the pandas documentation for details. ",
+        },
+        {
+            term: " parameter",
+            definition:
+                " A variable of a model that the machine learning system trains on its own. For example, weights are parameters whose values the machine learning system gradually learns through successive training iterations. Contrast with hyperparameter . ",
+        },
+        // {
+        // "term":" Parameter Server (PS)",
+        // "definition":""
+        // },
+        {
+            term: " parameter update",
+            definition:
+                " The operation of adjusting a model's parameters during training, typically within a single iteration of gradient descent . ",
+        },
+        {
+            term: " partial derivative",
+            definition:
+                " A derivative in which all but one of the variables is considered a constant. For example, the partial derivative of f(x, y) with respect to x is the derivative of f considered as a function of x alone (that is, keeping y constant). The partial derivative of f with respect to x focuses only on how x is changing and ignores all other variables in the equation. ",
+        },
+        // {
+        // "term":" participation bias",
+        // "definition":""
+        // },
+        {
+            term: " partitioning strategy",
+            definition: " The algorithm by which variables are divided across parameter servers . ",
+        },
+        {
+            term: " perceptron",
+            definition:
+                " A system (either hardware or software) that takes in one or more input values, runs a function on the weighted sum of the inputs, and computes a single output value. In machine learning, the function is typically nonlinear, such as ReLU , sigmoid , or tanh. For example, the following perceptron relies on the sigmoid function to process three input values: ",
+        },
+        {
+            term: " performance",
+            definition: "Overloaded term with the following meanings:",
+        },
+        {
+            term: " perplexity",
+            definition:
+                " One measure of how well a model is accomplishing its task. For example, suppose your task is to read the first few letters of a word a user is typing on a smartphone keyboard, and to offer a list of possible completion words. Perplexity, P, for this task is approximately the number of guesses you need to offer in order for your list to contain the actual word the user is trying to type. ",
+        },
+        {
+            term: " pipeline",
+            definition:
+                "The infrastructure surrounding a machine learning algorithm. A pipeline includes gathering the data, putting the data into training data files, training one or more models, and exporting the models to production.",
+        },
+        // {
+        // "term":" policy",
+        // "definition":""
+        // },
+        // {
+        // "term":" pooling",
+        // "definition":""
+        // },
+        {
+            term: " positive class",
+            definition: ` In binary classification , the two possible classes are labeled as positive and negative. The positive outcome is the thing we're testing for. (Admittedly, we're simultaneously testing for both outcomes, but play along.) For example, the positive class in a medical test might be "tumor." The positive class in an email classifier might be "spam." `,
+        },
+        {
+            term: " post-processing",
+            definition: "after",
+        },
+        {
+            term: " PR AUC (area under the PR curve)",
+            definition:
+                " Area under the interpolated precision-recall curve , obtained by plotting (recall, precision) points for different values of the classification threshold . Depending on how it's calculated, PR AUC may be equivalent to the average precision of the model. ",
+        },
+        {
+            term: " precision",
+            definition:
+                " A metric for classification models . Precision identifies the frequency with which a model was correct when predicting the positive class . That is: ",
+        },
+        {
+            term: " precision-recall curve",
+            definition: " A curve of precision vs. recall at different classification thresholds . ",
+        },
+        {
+            term: " prediction",
+            definition: " A model's output when provided with an input example . ",
+        },
+        {
+            term: " prediction bias",
+            definition:
+                " A value indicating how far apart the average of predictions is from the average of labels in the dataset. ",
+        },
+        // {
+        // "term":" predictive parity",
+        // "definition":""
+        // },
+        // {
+        // "term":" predictive rate parity",
+        // "definition":""
+        // },
+        // {
+        // "term":" premade Estimator",
+        // "definition":""
+        // },
+        {
+            term: " preprocessing",
+            definition: " sensitive attributes ",
+        },
+        {
+            term: " pre-trained model",
+            definition:
+                " Models or model components (such as embeddings ) that have been already been trained. Sometimes, you'll feed pre-trained embeddings into a neural network . Other times, your model will train the embeddings itself rather than rely on the pre-trained embeddings. ",
+        },
+        {
+            term: " prior belief",
+            definition:
+                " What you believe about the data before you begin training on it. For example, L 2 regularization relies on a prior belief that weights should be small and normally distributed around zero. ",
+        },
+        {
+            term: " proxy (sensitive attributes)",
+            definition: " sensitive attribute ",
+        },
+        {
+            term: " proxy labels",
+            definition: "Data used to approximate labels not directly available in a dataset.",
+        },
+        // {
+        // "term":" Q-function",
+        // "definition":""
+        // },
+        // {
+        // "term":" Q-learning",
+        // "definition":""
+        // },
+        {
+            term: " quantile",
+            definition: " Each bucket in quantile bucketing . ",
+        },
+        {
+            term: " quantile bucketing",
+            definition:
+                " Distributing a feature's values into buckets so that each bucket contains the same (or almost the same) number of examples. For example, the following figure divides 44 points into 4 buckets, each of which contains 11 points. In order for each bucket in the figure to contain the same number of points, some buckets span a different width of x-values. ",
+        },
+        {
+            term: " quantization",
+            definition: " An algorithm that implements quantile bucketing on a particular feature in a dataset . ",
+        },
+        // {
+        // "term":" queue",
+        // "definition":""
+        // },
+        {
+            term: " random forest",
+            definition: ` An ensemble approach to finding the decision tree that best fits the training data by creating many decision trees and then determining the "average" one. The "random" part of the term refers to building each of the decision trees from a random selection of features; the "forest" refers to the set of decision trees. `,
+        },
+        // {
+        // "term":" random policy",
+        // "definition":""
+        // },
+        {
+            term: " rank (ordinality)",
+            definition:
+                "The ordinal position of a class in a machine learning problem that categorizes classes from highest to lowest. For example, a behavior ranking system could rank a dog's rewards from highest (a steak) to lowest (wilted kale).",
+        },
+        // {
+        // "term":" rank (Tensor)",
+        // "definition":""
+        // },
+        {
+            term: " rater",
+            definition: ` A human who provides labels in examples . Sometimes called an "annotator." `,
+        },
+        {
+            term: " recall",
+            definition:
+                " A metric for classification models that answers the following question: Out of all the possible positive labels, how many did the model correctly identify? That is: ",
+        },
+        // {
+        // "term":" recommendation system",
+        // "definition":""
+        // },
+        {
+            term: " Rectified Linear Unit (ReLU)",
+            definition: " An activation function with the following rules: ",
+        },
+        // {
+        // "term":" recurrent neural network ",
+        // "definition":""
+        // },
+        {
+            term: " regression model",
+            definition: ` A type of model that outputs continuous (typically, floating-point) values. Compare with classification models , which output discrete values, such as "day lily" or "tiger lily." `,
+        },
+        {
+            term: " regularization",
+            definition:
+                " The penalty on a model's complexity. Regularization helps prevent overfitting . Different kinds of regularization include: ",
+        },
+        {
+            term: " regularization rate",
+            definition:
+                " A scalar value, represented as lambda, specifying the relative importance of the regularization function. The following simplified loss equation shows the regularization rate's influence: ",
+        },
+        // {
+        // "term":" reinforcement learning (RL)",
+        // "definition":""
+        // },
+        // {
+        // "term":" replay buffer",
+        // "definition":""
+        // },
+        // {
+        // "term":" reporting bias ",
+        // "definition":""
+        // },
+        {
+            term: " representation",
+            definition: " The process of mapping data to useful features . ",
+        },
+        // {
+        // "term":" re-ranking",
+        // "definition":""
+        // },
+        // {
+        // "term":" return",
+        // "definition":""
+        // },
+        // {
+        // "term":" reward",
+        // "definition":""
+        // },
+        {
+            term: " ridge regularization",
+            definition:
+                " Synonym for L 2 regularization . The term ridge regularization is more frequently used in pure statistics contexts, whereas L 2 regularization is used more often in machine learning. ",
+        },
+        // {
+        // "term":" RNN",
+        // "definition":""
+        // },
+        {
+            term: " ROC (receiver operating characteristic) Curve",
+            definition:
+                " A curve of true positive rate vs. false positive rate at different classification thresholds . See also AUC . ",
+        },
+        // {
+        // "term":" root directory",
+        // "definition":""
+        // },
+        {
+            term: " Root Mean Squared Error (RMSE)",
+            definition: " The square root of the Mean Squared Error . ",
+        },
+        // {
+        // "term":" rotational invariance",
+        // "definition":""
+        // },
+        // {
+        // "term":" sampling bias ",
+        // "definition":""
+        // },
+        // {
+        // "term":" SavedModel",
+        // "definition":""
+        // },
+        // {
+        // "term":" Saver",
+        // "definition":""
+        // },
+        {
+            term: " scalar",
+            definition:
+                " A single number or a single string that can be represented as a tensor of rank 0. For example, the following lines of code each create one scalar in TensorFlow: ",
+        },
+        {
+            term: " scaling",
+            definition:
+                " A commonly used practice in feature engineering to tame a feature's range of values to match the range of other features in the dataset. For example, suppose that you want all floating-point features in the dataset to have a range of 0 to 1. Given a particular feature's range of 0 to 500, you could scale that feature by dividing each value by 500. ",
+        },
+        {
+            term: " scikit-learn",
+            definition: " A popular open-source machine learning platform. See www.scikit-learn.org . ",
+        },
+        // {
+        // "term":" scoring",
+        // "definition":""
+        // },
+        // {
+        // "term":" selection bias ",
+        // "definition":""
+        // },
+        {
+            term: " semi-supervised learning",
+            definition:
+                "Training a model on data where some of the training examples have labels but others don’t. One technique for semi-supervised learning is to infer labels for the unlabeled examples, and then to train on the inferred labels to create a new model. Semi-supervised learning can be useful if labels are expensive to obtain but unlabeled examples are plentiful.",
+        },
+        // {
+        // "term":" sensitive attribute",
+        // "definition":""
+        // },
+        {
+            term: " sentiment analysis",
+            definition:
+                " Using statistical or machine learning algorithms to determine a group's overall attitude—positive or negative—toward a service, product, organization, or topic. For example, using natural language understanding , an algorithm could perform sentiment analysis on the textual feedback from a university course to determine the degree to which students generally liked or disliked the course. ",
+        },
+        // {
+        // "term":" sequence model",
+        // "definition":""
+        // },
+        {
+            term: " serving",
+            definition: " A synonym for inferring . ",
+        },
+        // {
+        // "term":" session (tf.session)",
+        // "definition":""
+        // },
+        {
+            term: " shape (Tensor)",
+            definition:
+                " The number of elements in each dimension of a tensor. The shape is represented as a list of integers. For example, the following two-dimensional tensor has a shape of [3,4]: ",
+        },
+        {
+            term: " sigmoid function",
+            definition:
+                "A function that maps logistic or multinomial regression output (log odds) to probabilities, returning a value between 0 and 1. The sigmoid function has the following formula:",
+        },
+        // {
+        // "term":" similarity measure",
+        // "definition":""
+        // },
+        // {
+        // "term":" size invariance",
+        // "definition":""
+        // },
+        // {
+        // "term":" sketching",
+        // "definition":""
+        // },
+        {
+            term: " softmax",
+            definition:
+                " A function that provides probabilities for each possible class in a multi-class classification model . The probabilities add up to exactly 1.0. For example, softmax might determine that the probability of a particular image being a dog at 0.9, a cat at 0.08, and a horse at 0.02. (Also called full softmax .) ",
+        },
+        {
+            term: " sparse feature",
+            definition:
+                " Feature vector whose values are predominately zero or empty. For example, a vector containing a single 1 value and a million 0 values is sparse. As another example, words in a search query could also be a sparse feature—there are many possible words in a given language, but only a few of them occur in a given query. ",
+        },
+        {
+            term: " sparse representation",
+            definition: " A representation of a tensor that only stores nonzero elements. ",
+        },
+        {
+            term: " sparse vector",
+            definition: " A vector whose values are mostly zeroes. See also sparse feature . ",
+        },
+        {
+            term: " sparsity",
+            definition:
+                "The number of elements set to zero (or null) in a vector or matrix divided by the total number of entries in that vector or matrix. For example, consider a 10x10 matrix in which 98 cells contain zero. The calculation of sparsity is as follows:",
+        },
+        // {
+        // "term":" spatial pooling",
+        // "definition":""
+        // },
+        {
+            term: " squared hinge loss",
+            definition:
+                " The square of the hinge loss . Squared hinge loss penalizes outliers more harshly than regular hinge loss. ",
+        },
+        {
+            term: " squared loss",
+            definition:
+                " The loss function used in linear regression . (Also known as L 2 Loss .) This function calculates the squares of the difference between a model's predicted value for a labeled example and the actual value of the label . Due to squaring, this loss function amplifies the influence of bad predictions. That is, squared loss reacts more strongly to outliers than L 1 loss . ",
+        },
+        // {
+        // "term":" state",
+        // "definition":""
+        // },
+        // {
+        // "term":" state-action value function",
+        // "definition":""
+        // },
+        {
+            term: " static model",
+            definition: "A model that is trained offline.",
+        },
+        {
+            term: " stationarity",
+            definition:
+                "A property of data in a dataset, in which the data distribution stays constant across one or more dimensions. Most commonly, that dimension is time, meaning that data exhibiting stationarity doesn't change over time. For example, data that exhibits stationarity doesn't change from September to December.",
+        },
+        {
+            term: " step",
+            definition: " A forward and backward evaluation of one batch . ",
+        },
+        {
+            term: " step size",
+            definition: " Synonym for learning rate . ",
+        },
+        {
+            term: " stochastic gradient descent (SGD)",
+            definition:
+                " A gradient descent algorithm in which the batch size is one. In other words, SGD relies on a single example chosen uniformly at random from a dataset to calculate an estimate of the gradient at each step. ",
+        },
+        // {
+        // "term":" stride",
+        // "definition":""
+        // },
+        {
+            term: " structural risk minimization (SRM)",
+            definition: "An algorithm that balances two goals:",
+        },
+        // {
+        // "term":" subsampling",
+        // "definition":""
+        // },
+        // {
+        // "term":" summary",
+        // "definition":""
+        // },
+        {
+            term: " supervised machine learning",
+            definition:
+                " Training a model from input data and its corresponding labels . Supervised machine learning is analogous to a student learning a subject by studying a set of questions and their corresponding answers. After mastering the mapping between questions and answers, the student can then provide answers to new (never-before-seen) questions on the same topic. Compare with unsupervised machine learning . ",
+        },
+        {
+            term: " synthetic feature",
+            definition:
+                " A feature not present among the input features, but created from one or more of them. Kinds of synthetic features include: ",
+        },
+        // {
+        // "term":" tabular Q-learning",
+        // "definition":""
+        // },
+        {
+            term: " target",
+            definition: " Synonym for label . ",
+        },
+        // {
+        // "term":" target network",
+        // "definition":""
+        // },
+        {
+            term: " temporal data",
+            definition:
+                "Data recorded at different points in time. For example, winter coat sales recorded for each day of the year would be temporal data.",
+        },
+        // {
+        // "term":" Tensor",
+        // "definition":""
+        // },
+        // {
+        // "term":" TensorBoard",
+        // "definition":""
+        // },
+        // {
+        // "term":" TensorFlow",
+        // "definition":""
+        // },
+        // {
+        // "term":" TensorFlow Playground",
+        // "definition":""
+        // },
+        // {
+        // "term":" TensorFlow Serving",
+        // "definition":""
+        // },
+        // {
+        // "term":" Tensor Processing Unit (TPU)",
+        // "definition":""
+        // },
+        // {
+        // "term":" Tensor rank",
+        // "definition":""
+        // },
+        // {
+        // "term":" Tensor shape",
+        // "definition":""
+        // },
+        // {
+        // "term":" Tensor size",
+        // "definition":""
+        // },
+        // {
+        // "term":" termination condition",
+        // "definition":""
+        // },
+        {
+            term: " test set",
+            definition:
+                " The subset of the dataset that you use to test your model after the model has gone through initial vetting by the validation set. ",
+        },
+        // {
+        // "term":" tf.Example",
+        // "definition":""
+        // },
+        // {
+        // "term":" tf.keras",
+        // "definition":""
+        // },
+        // {
+        // "term":" time series analysis",
+        // "definition":""
+        // },
+        // {
+        // "term":"timestep",
+        // "definition":""
+        // },
+        {
+            term: "tower",
+            definition:
+                " A component of a deep neural network that is itself a deep neural network without an output layer. Typically, each tower reads from an independent data source. Towers are independent until their output is combined in a final layer. ",
+        },
+        // {
+        // "term":" TPU ",
+        // "definition":""
+        // },
+        // {
+        // "term":" TPU chip ",
+        // "definition":""
+        // },
+        // {
+        // "term":" TPU device ",
+        // "definition":""
+        // },
+        // {
+        // "term":" TPU master",
+        // "definition":""
+        // },
+        // {
+        // "term":" TPU node ",
+        // "definition":""
+        // },
+        // {
+        // "term":" TPU Pod ",
+        // "definition":""
+        // },
+        // {
+        // "term":" TPU resource",
+        // "definition":""
+        // },
+        // {
+        // "term":" TPU slice",
+        // "definition":""
+        // },
+        // {
+        // "term":" TPU type ",
+        // "definition":""
+        // },
+        // {
+        // "term":" TPU worker",
+        // "definition":""
+        // },
+        {
+            term: " training",
+            definition: " The process of determining the ideal parameters comprising a model. ",
+        },
+        {
+            term: " training set",
+            definition: "The subset of the dataset used to train a model.",
+        },
+        // {
+        // "term":" trajectory",
+        // "definition":""
+        // },
+        {
+            term: " transfer learning",
+            definition:
+                " Transferring information from one machine learning task to another. For example, in multi-task learning, a single model solves multiple tasks, such as a deep model that has different output nodes for different tasks. Transfer learning might involve transferring knowledge from the solution of a simpler task to a more complex one, or involve transferring knowledge from a task where there is more data to one where there is less data. ",
+        },
+        // {
+        // "term":" translational invariance",
+        // "definition":""
+        // },
+        // {
+        // "term":" trigram",
+        // "definition":""
+        // },
+        {
+            term: " true negative (TN)",
+            definition:
+                " An example in which the model correctly predicted the negative class . For example, the model inferred that a particular email message was not spam, and that email message really was not spam. ",
+        },
+        {
+            term: " true positive (TP)",
+            definition:
+                " An example in which the model correctly predicted the positive class . For example, the model inferred that a particular email message was spam, and that email message really was spam. ",
+        },
+        {
+            term: " true positive rate (TPR)",
+            definition: " Synonym for recall . That is: ",
+        },
+        // {
+        // "term":" unawareness (to a sensitive attribute)",
+        // "definition":""
+        // },
+        {
+            term: " underfitting",
+            definition:
+                "Producing a model with poor predictive ability because the model hasn't captured the complexity of the training data. Many problems can cause underfitting, including:",
+        },
+        {
+            term: " unlabeled example",
+            definition:
+                " An example that contains features but no label . Unlabeled examples are the input to inference . In semi-supervised and unsupervised learning, unlabeled examples are used during training. ",
+        },
+        // {
+        // "term":" unsupervised machine learning",
+        // "definition":""
+        // },
+        {
+            term: " upweighting",
+            definition: " Applying a weight to the downsampled class equal to the factor by which you downsampled. ",
+        },
+        // {
+        // "term":" user matrix",
+        // "definition":""
+        // },
+        {
+            term: " validation",
+            definition:
+                " A process used, as part of training , to evaluate the quality of a machine learning model using the validation set . Because the validation set is disjoint from the training set, validation helps ensure that the model’s performance generalizes beyond the training set. ",
+        },
+        {
+            term: " validation set",
+            definition: " A subset of the dataset—disjoint from the training set—used in validation . ",
+        },
+        // {
+        // "term":"vanishing gradient problem",
+        // "definition":""
+        // },
+        {
+            term: "Wasserstein loss",
+            definition:
+                " One of the loss functions commonly used in generative adversarial networks , based on the earth-mover's distance between the distribution of generated data and real data. ",
+        },
+        {
+            term: " weight",
+            definition:
+                " A coefficient for a feature in a linear model, or an edge in a deep network. The goal of training a linear model is to determine the ideal weight for each feature. If a weight is 0, then its corresponding feature does not contribute to the model. ",
+        },
+        // {
+        // "term":"Weighted Alternating Least Squares (WALS)",
+        // "definition":""
+        // },
+        {
+            term: " wide model",
+            definition: ` A linear model that typically has many sparse input features . We refer to it as "wide" since such a model is a special type of neural network with a large number of inputs that connect directly to the output node. Wide models are often easier to debug and inspect than deep models. Although wide models cannot express nonlinearities through hidden layers , they can use transformations such as feature crossing and bucketization to model nonlinearities in different ways. `,
+        },
+        {
+            term: " width",
+            definition: " The number of neurons in a particular layer of a neural network . ",
+        },
+    ];
+    var table = $("#glossaryTerms").DataTable({
+        language: {
+            "paginate": {
+              "previous": "<<",
+              "next":">>"
+            }
+          },
+        autoWidth: false,
+        pageLength: 10,
+        data: data,
+        columns: [{ data: "term" }, { data: "definition" }],
+        columnDefs: [
+            {
+                render: function (data, type, full, meta) {
+                    return "<div class='text-wrap width-150'>" + data + "</div>";
+                },
+                targets: 1,
+            },
+        ],
+    });
+</script>
+
+
+
+
+    
+    
+<div class="header pb-8 pt-5">
+    <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4 text-primary">
+        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+            <li class="breadcrumb-item text-primary">
+                <a href="/"><i class="fas fa-home text-primary"></i></a>
+            </li>
+            <li class="breadcrumb-item text-primary"><a href="/learn_ai" class="text-primary">Learn</a></li>
+        </ol>
+    </nav>
+    <div class="container-fluid mt-2">
+        <select name="version-select" id="version-select" class="custom-select">
+            <option value="all" selected>ALL</option>
+            <option value="ai-for-nontech">AI for Non technical Aspirants</option>
+            <option value="what-is-ai">What is AI</option>
+            <option value="ai-full-course">AI full course</option>
+            <option value="ai-in-ten-mins">AI in 10 minutes</option>get-started-ai-ml
+            <option value="get-started-ai-ml">Get Started with AI and ML</option>
+        </select>
+        <br>
+        <br>
+
+        <br>
+        <h1>Artificial Intelligence</h1>
+        <br>
+        <br>
+        <div class="row ai-row">
+            <div class="col-4 ai-for-nontech">
+                <div class="card" id="ai-for-nontech">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/WEBqU1JoqYA"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Artificial Intelligence AI for non-technical aspirants</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This video is designed for those with little or no background in Artificial Intelligence and
+                            does not require any programming skills. It is designed to give you a firm understanding of
+                            what is AI, its applications and use cases across various industries. In this program you
+                            will get familiar to terms like Structured/Unstructured data, Supervised/unsupervised
+                            learning, Machine Learning, Deep Learning and Neural Networks.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 what-is-ai" >
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/ad79nYk2keg"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">
+                            Artificial Intelligence In 5 Minutes | What Is Artificial Intelligence?
+                        </h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This video on Artificial Intelligence introduces you to Artificial intelligence with a fun
+                            and simple approach. We will talk about what is Artificial Intelligence, how it's different
+                            from Machine Learning and deep learning, its features, types, and scope. We also look at
+                            some interesting applications of Artificial Intelligence.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 ai-full-course" >
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/JMUxmLyrhSk"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">
+                            Artificial Intelligence Full Course | Artificial Intelligence Tutorial for Beginners
+                        </h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This video on "Artificial Intelligence" will provide you with a comprehensive and detailed
+                            knowledge of Artificial Intelligence concepts with hands-on examples.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 ai-in-ten-mins" >
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/cW9shEB8h5E"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">
+                            Artificial Intelligence In 10 Minutes | What Is Artificial Intelligence?| AI Explained
+                        </h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            Artificial Intelligence is the most debated technology of the 21st century. It is widely
+                            used to solve complex problems and ease human tasks. In this video, you will learn AI in 10
+                            minutes. You will understand a brief history of AI and look into what Artificial
+                            Intelligence is. Then you will see the types of AI and learn the different applications of
+                            AI. Finally, we'll see what the future of AI holds.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 get-started-ai-ml" >
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/nl7kDPYD20A"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">How to Get Started with Machine Learning & AI</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            So how do you get started with machine learning and AI? What should you learn first? Well in
+                            this video we will be discussing the exact things you need to learn to get started with
+                            machine learning. We will be talking about which language to learn, how much math you need
+                            and what ML algorithms to learn first.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 ai-for-nontech">
+                <div class="card" id="ai-for-nontech">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/WEBqU1JoqYA"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Artificial Intelligence AI for non-technical aspirants</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This video is designed for those with little or no background in Artificial Intelligence and
+                            does not require any programming skills. It is designed to give you a firm understanding of
+                            what is AI, its applications and use cases across various industries. In this program you
+                            will get familiar to terms like Structured/Unstructured data, Supervised/unsupervised
+                            learning, Machine Learning, Deep Learning and Neural Networks.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+       	    </div>
+        <br>    
+        <h1>Machine Learning</h1>
+        <br>
+        <br>
+        <div class="row ai-row">
+            <div class="col-4 ml-basics">
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/ukzFI9rgwfU"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Machine Learning Basics | What Is Machine Learning?</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This Machine Learning basics video will help you understand what is Machine Learning, what
+                            are the types of Machine Learning - supervised, unsupervised & reinforcement learning, how
+                            Machine Learning works with simple examples, and will also explain how Machine Learning is
+                            being used in various industries.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 ml-intro">
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/hjh1ikznScg"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Introduction To Machine Learning</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This Video covers the Basics of Machine Learning. It will explain why machine learning came
+                            to existence and how it solved major problems. This video also describes the various types
+                            of Machine Learning with real-life examples.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 ml-7-steps">
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/nKW8Ndu7Mjw"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">The 7 steps of machine learning</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            How can we tell if a drink is beer or wine? Machine learning, of course! In this episode of
+                            Cloud AI Adventures, Yufeng walks through the 7 steps involved in applied machine learning.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 ml-for-nonprog">
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/jgPChUZP57I"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Data Science and Machine Learning for Non Programmers</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This video on "Data Science and Machine Learning for Non-programmers" is a part of the Data
+                            Science for Beginners Tutorial Series which is specifically dedicated to non-IT
+                            professionals.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 ml-top-tools">
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/v0uVu5__JGg"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Top Machine Learning Tools and Frameworks for Beginners</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This video is a part of the Machine Learning Tutorial that will provide you with a list of
+                            the Top Machine Learning tools and Frameworks that one must know about. Machine Learning
+                            Tools help us in developing algorithmic applications of artificial intelligence which can
+                            enable the ability to learn and improve machine processing without much human input.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <h1>Deep Learning</h1>
+        <br>
+        <br>
+        <div class="row ai-row">
+            <div class="col-4 dl-intro">
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/5tvmMX8r_OM"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Introduction to Deep Learning</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            MIT's introductory course on deep learning methods with applications to computer vision,
+                            natural language processing, biology, and more! Students will gain foundational knowledge of
+                            deep learning algorithms and get practical experience in building neural networks in
+                            TensorFlow.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 dl-explained">
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/5iXdm36JpU0"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">
+                            Deep Learning Explained | Deep Learning Tutorial For Beginners
+                        </h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This video on "what is Deep Learning" will help you understand what is Deep Learning, why do
+                            we need Deep Learning, applications of Deep Learning, what is a neural network, what are
+                            activation functions, what is gradient descent, neural network prediction from scratch. This
+                            video is designed for beginners who want to get started with Deep Learning and Artificial
+                            Intelligence.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 dl-mltalks">
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/AhE8RhPGH1A"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Intro to Deep Learning (ML Tech Talks)</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            An overview of Deep Learning, including representation learning, families of neural networks
+                            and their applications, a first look inside a deep neural network, and many code examples
+                            and concepts from TensorFlow.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 dl-tutorial">
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/FbxTVRfQFuI"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Deep Learning Tutorial</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This Deep Learning tutorial will help you in understanding what is Deep learning, why do we
+                            need Deep learning, applications of Deep Learning along with a detailed explanation on
+                            Neural Networks and how these Neural Networks work. Deep learning is inspired by the
+                            integral function of the human brain specific to artificial neural networks. These networks,
+                            which represent the decision-making process of the brain, use complex algorithms that
+                            process data in a non-linear way, learning in an unsupervised manner to make choices based
+                            on the input.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 dl-nontech">
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/_68DQPfkQ70"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Non technical explaination of Deep Learning Part 1</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            AI is not only for engineers. If you want your organization to become better at using AI,
+                            this is the course to tell everyone--especially your non-technical colleagues--to take. In
+                            this course, you will learn: - The meaning behind common AI terminology, including neural
+                            networks, machine learning, deep learning, and data science - What AI realistically can--and
+                            cannot--do - How to spot opportunities to apply AI to problems in your own organization -
+                            What it feels like to build machine learning and data science projects.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 dl-nontech">
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/e2Nx6VAjdBU"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Non technical explaination of Deep Learning Part 2</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            Continuation of Part 1 where we further explore how to work with an AI team and build an AI
+                            strategy in your company - How to navigate ethical and societal discussions surrounding AI
+                            Though this course is largely non-technical, engineers can also take this course to learn
+                            the business aspects of AI.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <h1>Documentation Videos</h1>
+        <br>
+        <br>
+        <div class="row ai-row">
+	        <div class="col-4 platform-overview">
+                <div class="card" id="platform-overview">
+		        <iframe 
+			        class="card-img-top"
+			        src="https://drive.google.com/file/d/1QgveqVR_EmfQWirPdyu7Hh2fQJX-271q/preview" 
+			        frameborder="0"
+			        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			        allowfullscreen
+		        ></iframe>
+
+
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Platform Overview</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This video gives a complete overview of the One Nine dashboard and features.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>  
+	    
+	        <div class="col-4 data-literacy">
+                <div class="card" id="data-literacy">
+		        <iframe 
+			        class="card-img-top"
+			        src="https://www.youtube.com/embed/X5boB46yUKc" 
+			        frameborder="0"
+			        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			        allowfullscreen
+		        ></iframe>
+
+
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Data Literacy</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            Data literacy is a term used to describe an individual’s ability to read, 
+                            understand, and utilize data in different ways.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 data-exploration">
+                <div class="card" id="data-exploration">
+		        <iframe 
+			        class="card-img-top"
+			        src="https://drive.google.com/file/d/15d5zfUcczb8B87tBkz8TQyI0WhtPKrSo/preview"
+			        frameborder="0"
+			        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			        allowfullscreen
+		        ></iframe>
+
+
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Data Exploration</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            Data analysis is defined as a process of cleaning, transforming, and modeling data 
+                            to discover useful information for business decision-making.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 data-visualization">
+                <div class="card" id="data-visualization">
+		        <iframe 
+			        class="card-img-top"
+			        src="https://drive.google.com/file/d/1eTDMo1zGao4p99nPvOXinpkLjZMsA33r/preview" 
+			        frameborder="0"
+			        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			        allowfullscreen
+		        ></iframe>
+
+
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Data Visualization</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            Visualize your data, from simple line charts to highly detailed geospatial charts with few clicks.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>	        
+            </div>
+            
+            <div class="col-4 ai-project">
+                <div class="card" id="ai-project">
+		        <iframe 
+			        class="card-img-top"
+			        src="https://drive.google.com/file/d/1_X_ZOuTa-R4QWEOUhu1A--9c0vkaz1fv/preview" 
+			        frameborder="0"
+			        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			        allowfullscreen
+		        ></iframe>
+
+
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">AI Project</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            Pick and choose from the marketplace of most popular machine learning models in the world.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 smart-model">
+                <div class="card" id="smart-model">
+		        <iframe 
+			        class="card-img-top"
+			        src="https://drive.google.com/file/d/1IH5xMSuYFF4iR9VpCRtb4cnqmxRwfXuh/preview" 
+			        frameborder="0"
+			        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			        allowfullscreen
+		        ></iframe>
+
+
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Smart Model</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            Smart enough to choose right algorithm & approach based on your data.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 discovery-project">
+                <div class="card" id="discovery-project">
+		        <iframe 
+			        class="card-img-top"
+			        src="https://drive.google.com/file/d/1yXcS76njoNaM4DSg-ex-x_sOioKaAXQa/preview" 
+			        frameborder="0"
+			        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			        allowfullscreen
+		        ></iframe>
+
+
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Discovery Project</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            Discovery project is an easy way to build highly customized neural networks without any coding.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-4 completed-project">
+                <div class="card" id="completed-project">
+		        <iframe 
+			        class="card-img-top"
+			        src="https://drive.google.com/file/d/1hAuQTtpoVYDHWsT0Rn1nDc0pqbXiA8nR/preview" 
+			        frameborder="0"
+			        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			        allowfullscreen
+		        ></iframe>
+
+
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Completed Project</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            Access your completed projects.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-4 real-time-predictions">
+                <div class="card" id="real-time-predictions">
+		        <iframe 
+			        class="card-img-top"
+			        src="https://drive.google.com/file/d/1TLxfMTVHsN2kk1VKKbIwRDZeR3PTs0Vj/preview" 
+			        frameborder="0"
+			        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			        allowfullscreen
+		        ></iframe>
+
+
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Real Time Predictions</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            After successfully building a Machine Learning/Deep Learning/Time series model, 
+                            the primary question arises, How to use the model in real time?
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+	    <!--PUT CARD DIVS HERE-->
+	    
+
+
+    </div>
+</div>
+
+
+  </div>
+
+  <script src="/static/assets/vendor/jquery/dist/jquery.min.js"></script>
+<script src="/static/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/static/assets/vendor/js-cookie/js.cookie.js"></script>
+<script src="/static/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+<script src="/static/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+<!-- Optional JS -->
+<script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+<script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+<script src="/static/assets/vendor/sweetalert2/dist/sweetalert2.min.js"></script>
+
+<!-- Argon JS -->
+
+<!-- Demo JS - remove this in your project -->
+<!-- <script src="../assets/js/demo.min.js"></script> -->
+
+<script src="/static/assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/static/assets/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+<!-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> -->
+<script src="/static/assets/js/argon.js?v=1.2.0"></script>
+
+<script>
+    $('#projectListTable').DataTable({
+      "pageLength": 5,
+      "language": {
+        "paginate": {
+          "previous": "<<",
+          "next":">>"
+        }
+      },
+    });
+  </script>
+<!-- <script src="/static/assets/js/argon.js?v=1.2.0"></script> -->
+
+  <!-- Specific JS goes HERE --> 
+  <script src="/static/assets/js/vendor/moment/moment.min.js"></script>
+  <script src="/static/assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="/static/assets/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="/static/assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="/static/assets/vendor/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+  <script src="/static/assets/vendor/datatables.net-buttons/js/buttons.html5.min.js"></script>
+  <script src="/static/assets/vendor/datatables.net-buttons/js/buttons.flash.min.js"></script>
+  <script src="/static/assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
+  <script src="/static/assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
+  <script src="/static/assets/vendor/select2/dist/js/select2.min.js"></script>
+  <script src="/static/assets/js/vendor/typewriter-effect/dist/core.js"></script>
+  <script src="/static/assets/js/vendor/jszip/jszip.min.js"></script>
+  <script src="/static/assets/js/vendor/datetime-moment/datetime-moment.js"></script>
+  <script>
+    $('#projectListTable').DataTable({
+      "pageLength": 5,
+      "language": {
+        "paginate": {
+          "previous": "<<",
+          "next":">>"
+        }
+      },
+    });
+  </script>
+  <script>
+    $.fn.dataTable.moment( 'MMM DD, YYYY' );
+    $.fn.dataTable.moment( 'YYYY-MM-DD' );
+  </script>
+
+  
+<script>
+    $('#version-select').change(function(){
+        topics = ['ai-for-nontech','what-is-ai','ai-full-course','ai-in-ten-mins', 'get-started-ai-ml']
+        console.log("cameeeeeeeeeeee")
+        var selected_val = $(this).val();
+        if (selected_val != 'all') {
+            selected_arr = topics.filter((e,i) => e !== selected_val)
+            for (const property in selected_arr) {
+                console.log(selected_arr[property]);
+                $('div[class$="col-4 ' + selected_arr[property] + '"]').hide();
+
+            }
+            $('div[class$="col-4 ' + selected_val + '"]').show();
+            console.log("doneeeeee")
+
+        }
+        else{
+            for (const property in topics) {
+                console.log(topics[property]);
+                $('div[class$="col-4 ' + topics[property] + '"]').show();
+
+            }
+        }
+    });
+
+</script>
+
+
+
+  <script type='text/javascript'>
+    
+    function setAttributes(el, attrs) {
+      for(var key in attrs) {
+        el.setAttribute(key, attrs[key]);
+      }
+    }
+    window.onload = function() {
+      const thead = document.querySelectorAll('.table > thead')
+      thead.forEach(e => setAttributes(e, {
+        "class": "thead-light",
+      }));
+      const th = document.querySelectorAll('.table > thead > tr > th');
+      th.forEach(e => setAttributes(e, {
+        "class": "sort",
+        "data-sort": "name",
+        "scope": "col",
+      }));
+      const th_body = document.querySelectorAll('.table > tbody > tr');
+      th_body.forEach(e => setAttributes(e, {
+        "scope": "row",
+      }));
+    }
+  </script>
+  <script>
+    $('.projectListTable1').DataTable({
+      "destroy" : true,
+      "pagingType": "numbers",
+      "dom": 'lfrtBip',
+      "language": {
+        "paginate": {
+          "previous": "<<",
+          "next":">>"
+        }
+      },
+      //   "buttons" : [
+      //      'csv', 'excel'
+      // ]
+      "buttons": [
+          {
+              extend: 'excelHtml5',
+              title: 'Data export'
+          },
+          {
+              extend: 'csv',
+              title: 'Data export'
+          }
+      ]
+    });
+
+  </script>
+    <!-- <script>
+      $('#loading').hide()
+    </script> -->
+
+</body>
+
+</html>
