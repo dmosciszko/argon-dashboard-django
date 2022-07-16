@@ -1,35 +1,648 @@
-{% extends 'layouts/base.html' %}
-
-{% block title %} Tables {% endblock title %}
-
+{% extends 'layouts/base.html' %} 
+{% load crispy_forms_tags %} 
 {% block content %}
 
-  <div class="header bg-primary pb-6">
-    <div class="container-fluid">
-      <div class="header-body">
-        <div class="row align-items-center py-4">
-          <div class="col-lg-6 col-7">
-            <h6 class="h2 text-white d-inline-block mb-0">Tables</h6>
-            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-              <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Tables</li>
-              </ol>
-            </nav>
-          </div>
-          <div class="col-lg-6 col-5 text-right">
-            <a href="#" class="btn btn-sm btn-neutral">New</a>
-            <a href="#" class="btn btn-sm btn-neutral">Filters</a>
-          </div>
+<div class="header pb-8 pt-5">
+    <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4 text-primary">
+        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+            <li class="breadcrumb-item text-primary">
+                <a href="/"><i class="fas fa-home text-primary"></i></a>
+            </li>
+            <li class="breadcrumb-item text-primary"><a href="/learn_ai" class="text-primary">Learn</a></li>
+        </ol>
+    </nav>
+    <div class="container-fluid mt-2">
+        <select name="version-select" id="version-select" class="custom-select">
+            <option value="tags" selected>TAGS</option>
+            <option value="ai">Artificial Intelligence</option>
+            <option value="ml">Machine Learning</option>
+            <option value="dl">Deep Learning</option>
+        </select>
+        <br />
+        <br />
+	
+	<h1>Artificial Intelligence </h1>
+        <div class="row ai-row">
+            <div class="col-4 ai-for-nontech">
+                <div class="card" id="ai-for-nontech">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/WEBqU1JoqYA"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Artificial Intelligence AI for non-technical aspirants</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This video is designed for those with little or no background in Artificial Intelligence and
+                            does not require any programming skills. It is designed to give you a firm understanding of
+                            what is AI, its applications and use cases across various industries. In this program you
+                            will get familiar to terms like Structured/Unstructured data, Supervised/unsupervised
+                            learning, Machine Learning, Deep Learning and Neural Networks.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 what-is-ai" >
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/ad79nYk2keg"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">
+                            Artificial Intelligence In 5 Minutes | What Is Artificial Intelligence?
+                        </h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This video on Artificial Intelligence introduces you to Artificial intelligence with a fun
+                            and simple approach. We will talk about what is Artificial Intelligence, how it's different
+                            from Machine Learning and deep learning, its features, types, and scope. We also look at
+                            some interesting applications of Artificial Intelligence.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 ai-full-course" >
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/JMUxmLyrhSk"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">
+                            Artificial Intelligence Full Course | Artificial Intelligence Tutorial for Beginners
+                        </h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This video on "Artificial Intelligence" will provide you with a comprehensive and detailed
+                            knowledge of Artificial Intelligence concepts with hands-on examples.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 ai-in-ten-mins" >
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/cW9shEB8h5E"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">
+                            Artificial Intelligence In 10 Minutes | What Is Artificial Intelligence?| AI Explained
+                        </h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            Artificial Intelligence is the most debated technology of the 21st century. It is widely
+                            used to solve complex problems and ease human tasks. In this video, you will learn AI in 10
+                            minutes. You will understand a brief history of AI and look into what Artificial
+                            Intelligence is. Then you will see the types of AI and learn the different applications of
+                            AI. Finally, we'll see what the future of AI holds.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 get-started-ai-ml" >
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/nl7kDPYD20A"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">How to Get Started with Machine Learning & AI</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            So how do you get started with machine learning and AI? What should you learn first? Well in
+                            this video we will be discussing the exact things you need to learn to get started with
+                            machine learning. We will be talking about which language to learn, how much math you need
+                            and what ML algorithms to learn first.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+	<br />
+	<br />
+
+	<h1> Machine Learning</h1>
+	<div class="row ml-row">
+            <div class="col-4 ml-basics">
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/ukzFI9rgwfU"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Machine Learning Basics | What Is Machine Learning?</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This Machine Learning basics video will help you understand what is Machine Learning, what
+                            are the types of Machine Learning - supervised, unsupervised & reinforcement learning, how
+                            Machine Learning works with simple examples, and will also explain how Machine Learning is
+                            being used in various industries.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 ml-intro">
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/hjh1ikznScg"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Introduction To Machine Learning</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This Video covers the Basics of Machine Learning. It will explain why machine learning came
+                            to existence and how it solved major problems. This video also describes the various types
+                            of Machine Learning with real-life examples.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 ml-7-steps">
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/nKW8Ndu7Mjw"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">The 7 steps of machine learning</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            How can we tell if a drink is beer or wine? Machine learning, of course! In this episode of
+                            Cloud AI Adventures, Yufeng walks through the 7 steps involved in applied machine learning.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 ml-for-nonprog">
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/jgPChUZP57I"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Data Science and Machine Learning for Non Programmers</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This video on "Data Science and Machine Learning for Non-programmers" is a part of the Data
+                            Science for Beginners Tutorial Series which is specifically dedicated to non-IT
+                            professionals.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 ml-top-tools">
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/v0uVu5__JGg"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Top Machine Learning Tools and Frameworks for Beginners</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This video is a part of the Machine Learning Tutorial that will provide you with a list of
+                            the Top Machine Learning tools and Frameworks that one must know about. Machine Learning
+                            Tools help us in developing algorithmic applications of artificial intelligence which can
+                            enable the ability to learn and improve machine processing without much human input.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+	<br />
+	<br />
+
+	<h1>Deep Learning</h1>
+	<div class="row dl-row">
+            <div class="col-4 dl-intro">
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/5tvmMX8r_OM"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Introduction to Deep Learning</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            MIT's introductory course on deep learning methods with applications to computer vision,
+                            natural language processing, biology, and more! Students will gain foundational knowledge of
+                            deep learning algorithms and get practical experience in building neural networks in
+                            TensorFlow.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 dl-explained">
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/5iXdm36JpU0"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">
+                            Deep Learning Explained | Deep Learning Tutorial For Beginners
+                        </h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This video on "what is Deep Learning" will help you understand what is Deep Learning, why do
+                            we need Deep Learning, applications of Deep Learning, what is a neural network, what are
+                            activation functions, what is gradient descent, neural network prediction from scratch. This
+                            video is designed for beginners who want to get started with Deep Learning and Artificial
+                            Intelligence.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 dl-mltalks">
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/AhE8RhPGH1A"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Intro to Deep Learning (ML Tech Talks)</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            An overview of Deep Learning, including representation learning, families of neural networks
+                            and their applications, a first look inside a deep neural network, and many code examples
+                            and concepts from TensorFlow.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 dl-tutorial">
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/FbxTVRfQFuI"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Deep Learning Tutorial</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This Deep Learning tutorial will help you in understanding what is Deep learning, why do we
+                            need Deep learning, applications of Deep Learning along with a detailed explanation on
+                            Neural Networks and how these Neural Networks work. Deep learning is inspired by the
+                            integral function of the human brain specific to artificial neural networks. These networks,
+                            which represent the decision-making process of the brain, use complex algorithms that
+                            process data in a non-linear way, learning in an unsupervised manner to make choices based
+                            on the input.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 dl-nontech">
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/_68DQPfkQ70"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Non technical explaination of Deep Learning Part 1</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            AI is not only for engineers. If you want your organization to become better at using AI,
+                            this is the course to tell everyone--especially your non-technical colleagues--to take. In
+                            this course, you will learn: - The meaning behind common AI terminology, including neural
+                            networks, machine learning, deep learning, and data science - What AI realistically can--and
+                            cannot--do - How to spot opportunities to apply AI to problems in your own organization -
+                            What it feels like to build machine learning and data science projects.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 dl-nontech">
+                <div class="card">
+                    <iframe
+                        class="card-img-top"
+                        src="https://www.youtube.com/embed/e2Nx6VAjdBU"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Non technical explaination of Deep Learning Part 2</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            Continuation of Part 1 where we further explore how to work with an AI team and build an AI
+                            strategy in your company - How to navigate ethical and societal discussions surrounding AI
+                            Though this course is largely non-technical, engineers can also take this course to learn
+                            the business aspects of AI.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+	<br />
+	<br />
+
+	<h1>Tutorial Videos</h1>
+	<div class="row tv-row">
+	        <div class="col-4 platform-overview">
+                <div class="card" id="platform-overview">
+		        <iframe
+			        class="card-img-top"
+			        src="https://drive.google.com/file/d/1QgveqVR_EmfQWirPdyu7Hh2fQJX-271q/preview"
+			        frameborder="0"
+			        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			        allowfullscreen
+		        ></iframe>
+
+
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Platform Overview</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            This video gives a complete overview of the One Nine dashboard and features.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+	        <div class="col-4 data-literacy">
+                <div class="card" id="data-literacy">
+		        <iframe
+			        class="card-img-top"
+			        src="https://www.youtube.com/embed/X5boB46yUKc"
+			        frameborder="0"
+			        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			        allowfullscreen
+		        ></iframe>
+
+
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Data Literacy</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            Data literacy is a term used to describe an individual’s ability to read,
+                            understand, and utilize data in different ways.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 data-exploration">
+                <div class="card" id="data-exploration">
+		        <iframe
+			        class="card-img-top"
+			        src="https://drive.google.com/file/d/15d5zfUcczb8B87tBkz8TQyI0WhtPKrSo/preview"
+			        frameborder="0"
+			        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			        allowfullscreen
+		        ></iframe>
+
+
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Data Exploration</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            Data analysis is defined as a process of cleaning, transforming, and modeling data
+                            to discover useful information for business decision-making.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 data-visualization">
+                <div class="card" id="data-visualization">
+		        <iframe
+			        class="card-img-top"
+			        src="https://drive.google.com/file/d/1eTDMo1zGao4p99nPvOXinpkLjZMsA33r/preview"
+			        frameborder="0"
+			        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			        allowfullscreen
+		        ></iframe>
+
+
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Data Visualization</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            Visualize your data, from simple line charts to highly detailed geospatial charts with few clicks.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 ai-project">
+                <div class="card" id="ai-project">
+		        <iframe
+			        class="card-img-top"
+			        src="https://drive.google.com/file/d/1_X_ZOuTa-R4QWEOUhu1A--9c0vkaz1fv/preview"
+			        frameborder="0"
+			        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			        allowfullscreen
+		        ></iframe>
+
+
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">AI Project</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            Pick and choose from the marketplace of most popular machine learning models in the world.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 smart-model">
+                <div class="card" id="smart-model">
+		        <iframe
+			        class="card-img-top"
+			        src="https://drive.google.com/file/d/1IH5xMSuYFF4iR9VpCRtb4cnqmxRwfXuh/preview"
+			        frameborder="0"
+			        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			        allowfullscreen
+		        ></iframe>
+
+
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Smart Model</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            Smart enough to choose right algorithm & approach based on your data.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 discovery-project">
+                <div class="card" id="discovery-project">
+		        <iframe
+			        class="card-img-top"
+			        src="https://drive.google.com/file/d/1yXcS76njoNaM4DSg-ex-x_sOioKaAXQa/preview"
+			        frameborder="0"
+			        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			        allowfullscreen
+		        ></iframe>
+
+
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Discovery Project</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            Discovery project is an easy way to build highly customized neural networks without any coding.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 completed-project">
+                <div class="card" id="completed-project">
+		        <iframe
+			        class="card-img-top"
+			        src="https://drive.google.com/file/d/1hAuQTtpoVYDHWsT0Rn1nDc0pqbXiA8nR/preview"
+			        frameborder="0"
+			        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			        allowfullscreen
+		        ></iframe>
+
+
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Completed Project</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            Access your completed projects.
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 real-time-predictions">
+                <div class="card" id="real-time-predictions">
+		        <iframe
+			        class="card-img-top"
+			        src="https://drive.google.com/file/d/1TLxfMTVHsN2kk1VKKbIwRDZeR3PTs0Vj/preview"
+			        frameborder="0"
+			        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			        allowfullscreen
+		        ></iframe>
+
+
+                    <div class="card-body">
+                        <h5 class="h2 card-title mb-0">Real Time Predictions</h5>
+                        <!-- <small class="text-muted">by John Snow on Oct 29th at 10:23 AM</small> -->
+                        <p class="card-text mt-4">
+                            After successfully building a Machine Learning/Deep Learning/Time series model,
+                            the primary question arises, How to use the model in real time?
+                        </p>
+                        <!-- <a href="#!" class="btn btn-link px-0">View article</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+	<br />
+
     </div>
-  </div>
-  
-  <!-- Page content -->
+</div>
+{% endblock content %} 
+{% block javascripts %}
+<script>
+    $('#version-select').change(function(){
+        topics = ['ai-for-nontech','what-is-ai','ai-full-course','ai-in-ten-mins', 'get-started-ai-ml']
+        console.log("cameeeeeeeeeeee")
+        var selected_val = $(this).val();
+        if (selected_val != 'all') {
+            selected_arr = topics.filter((e,i) => e !== selected_val)
+            for (const property in selected_arr) {
+                console.log(selected_arr[property]);
+                $('div[class$="col-4 ' + selected_arr[property] + '"]').hide();
 
-{% endblock content %}
+            }
+            $('div[class$="col-4 ' + selected_val + '"]').show();
+            console.log("doneeeeee")
 
-<!-- Specific JS goes HERE --> 
-{% block javascripts %}{% endblock javascripts %}
+        }
+        else{
+            for (const property in topics) {
+                console.log(topics[property]);
+                $('div[class$="col-4 ' + topics[property] + '"]').show();
+
+            }
+        }
+    });
+
+</script>
+{% endblock javascripts %}
