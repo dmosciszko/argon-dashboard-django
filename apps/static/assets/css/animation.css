@@ -1,28 +1,26 @@
 #bulb {
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
-    width: 30%;
-    height: 30%;
-}
-
-.draw {
-    fill-opacity: 100;
-    stroke: #e47932;
-    stroke-dashoffset: 0;
-    stroke-dasharray: 2000;
-    animation: anim 1s ease-in-out;
-    animation-iteration-count: infinite;
     
+    animation-name: rotate; 
+    animation-duration: 2s; 
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    -moz-animation-name: rotate; 
+    -moz-animation-duration: 2s; 
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+}
+@keyframes rotate {
+    from {
+        transform: rotateZ(0);
+    }
+    to {
+        transform: rotateZ(360);
+    }
 }
 
-@keyframes anim {
-    0%
-    {
-        stroke-dashoffset: 2000;
-    }
-    100%
-    {
-        stroke-dashoffset: 0;
-    }
+
+@-moz-keyframes rotate {
+    from {-moz-transform: rotateZ(0);}
+    to {-moz-transform: rotateZ(360);}
 }
